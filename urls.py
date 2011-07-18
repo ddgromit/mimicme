@@ -5,6 +5,11 @@ from django.conf.urls.defaults import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^crossdomain.xml$',
+        'flashpolicies.views.simple',
+        {'domains': ['*']}),
+
+    (r'uploadtarget','uploads.views.uploadTarget'),
     # Example:
     # (r'^mimicme/', include('mimicme.foo.urls')),
 
