@@ -10,8 +10,6 @@ urlpatterns = patterns('',
         {'domains': ['*']}),
 
     (r'uploadtarget','uploads.views.uploadTarget'),
-    # Example:
-    # (r'^mimicme/', include('mimicme.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -19,3 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
 )
+
+import practice.urls
+urlpatterns += practice.urls.urlpatterns
+
