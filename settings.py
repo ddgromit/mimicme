@@ -1,4 +1,6 @@
 # Django settings for mimicme project.
+import os
+PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -75,13 +77,25 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'mimicme.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_PATH,"practice/templates"),
+    os.path.join(PROJECT_PATH,"templates"),
 )
+
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+]
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -89,8 +103,21 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'accounts',
+    'practice',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+STATIC_URL = "/static/"
+STATIC_ROOT =  os.path.join(PROJECT_PATH,"static")
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_PATH,"common_static"),
+]
+
+try:
+    from settings_local import *
+except Exception:
+    pass
