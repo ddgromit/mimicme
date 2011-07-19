@@ -27,27 +27,32 @@
 
 {% block body %}
 <div class="center-column">
-    <div class="prompt">
-        <div class="phrase">
-            What's on Draft?
-        </div>
+    <div class="set">
+        At The Bar
     </div>
-    <div class="expert">
-        <div class="instructions">
-            Hear the expert say it.
+    <div class="everything">
+        <div class="prompt">
+            <div class="phrase">
+                "What's on Draft?"
+            </div>
         </div>
-        {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
-    </div>
+        <div class="expert">
+            <div class="instructions">
+                Hear the expert say it.
+            </div>
+            {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+        </div>
 
-    <div class="yourself">
-        <div class="instructions">
-            Now try it yourself.
+        <div class="yourself">
+            <div class="instructions">
+                Now try it yourself.
+            </div>
+            {% render_partial recorder.html type:'record' title:'test' %}
         </div>
-        {% render_partial recorder.html type:'record' title:'test' %}
-    </div>
 
-    <div class="next">
-        <button class="next-button">Next Phrase</button>
+        <div class="next">
+            <button class="next-button">Next Phrase</button>
+        </div>
     </div>
 </div>
 {% endblock %}

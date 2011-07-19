@@ -1,0 +1,19 @@
+.center-column {
+  width: 800px;
+  margin: 0 auto; }
+
+.title {
+  font-size: 30px;
+  font-weight: bold; }
+
+.sets {
+  margin-top: 30px;
+  width: 600px; }
+  .sets .set {
+    background-color: #FFF6D9;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 2px 4px; }
+  .sets .set:hover {
+    background-color: #FFF7BD; }
