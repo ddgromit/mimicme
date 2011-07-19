@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sets.css"/>
+{% endblock css %}
+
+{% block title %}Sets{%endblock%}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+{% endblock javascript %}
+
+{% block body %}
+{% endblock body %}

@@ -84,6 +84,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_PATH,"practice/templates"),
+    os.path.join(PROJECT_PATH,"core/templates"),
     os.path.join(PROJECT_PATH,"templates"),
 )
 
@@ -106,6 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'accounts',
     'practice',
+    'core',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

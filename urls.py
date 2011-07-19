@@ -21,3 +21,6 @@ urlpatterns = patterns('',
 import practice.urls
 urlpatterns += practice.urls.urlpatterns
 
+import core.urls
+urlpatterns += core.urls.urlpatterns
+
