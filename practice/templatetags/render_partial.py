@@ -26,7 +26,7 @@ def render_partial(parser, token):
         tag_name, partial = parts[:2]
         if partial.startswith('"'): partial = partial[1:-1]
         for p in parts[2:]:
-            k, v = p.split(':')
+            k, v = p.split(':',1)
             params[k] = v
 
     except ValueError:

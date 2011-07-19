@@ -6,6 +6,8 @@
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/practice.css"/>
 {% endblock css %}
 
+
+{% block title %}Practice{%endblock%}
 {% block javascript %}
 {{ block.super }}
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
@@ -16,7 +18,7 @@
         if (val) {
             //$("object").attr('height',138);
         } else {
-            $("object").attr('height',50);
+            //$("object").attr('height',50);
         }
     }
 </script>
@@ -25,18 +27,27 @@
 
 {% block body %}
 <div class="center-column">
-    <div class="title">Practice</div>
-    <div class="text-to-say">
-        nonchalant
-    </div>
-    <div class="pretend-swf">
-    </div>
-
-    <div class="now-you">
-        {% render_partial recorder.html type:'record' %}
-        <div class="pretend-swf">
-
+    <div class="prompt">
+        <div class="phrase">
+            nonchalant
         </div>
+    </div>
+    <div class="expert">
+        <div class="instructions">
+            Hear the expert say it.
+        </div>
+        {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+    </div>
+
+    <div class="yourself">
+        <div class="instructions">
+            Now try it yourself.
+        </div>
+        {% render_partial recorder.html type:'record' title:'test' %}
+    </div>
+
+    <div class="next">
+        <button class="next-button">Next Phrase</button>
     </div>
 </div>
 {% endblock %}
