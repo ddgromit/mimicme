@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
+{% load render_partial %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/practice.css"/>
+{% endblock css %}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+    function recorderNeedsPermissions(val) {
+        console.log("Recorder needs permission: " + val);
+
+        if (val) {
+            //$("object").attr('height',138);
+        } else {
+            $("object").attr('height',50);
+        }
+    }
+</script>
+{% endblock javascript %}
+
 
 {% block body %}
-body
+<div class="center-column">
+    <div class="title">Practice</div>
+    <div class="text-to-say">
+        nonchalant
+    </div>
+    <div class="pretend-swf">
+    </div>
+
+    <div class="now-you">
+        {% render_partial recorder.html type:'record' %}
+        <div class="pretend-swf">
+
+        </div>
+    </div>
+</div>
 {% endblock %}

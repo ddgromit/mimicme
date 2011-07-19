@@ -1,4 +1,4 @@
-$sitebgcolor: #25AFD9;
+$sitebgcolor: #fff;
 
 html {
     margin: 0;
@@ -10,8 +10,6 @@ body {
 }
 body.site {
     background-color: $sitebgcolor;
-    background-image: url('../images/bg-gradient.png');
-    background-repeat: repeat-x;
 }
 a img {
     border: none;
