@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load render_partial %}
 
 {% block css %}
 {{ block.super }}
@@ -12,4 +13,46 @@
 {% endblock javascript %}
 
 {% block body %}
+<div class="center-column">
+    <div class="title">
+        Review Your Feedback
+    </div>
+    <div class="feedbacks">
+        <div class="feedback">
+            <div class="phrase">
+                "What's on draft?"
+            </div>
+            <div class="expert">
+                {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+            </div>
+            <div class="yours">
+                {% render_partial recorder.html type:'mp3' title:'Your Submission' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+            </div>
+            <div class="responses">
+                <div class="response response-new">
+                    <div class="recency">New!</div>
+                    {% render_partial recorder.html type:'mp3' title:'Feedback (Angelo K)' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                </div>
+            </div>
+            <button class="try-again-button">Record Again</button>
+        </div>
+        <div class="feedback">
+            <div class="phrase">
+                "Red Wine, please."
+            </div>
+            <div class="expert">
+                {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+            </div>
+            <div class="yours">
+                {% render_partial recorder.html type:'mp3' title:'Your Submission' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+            </div>
+            <div class="responses">
+                <div class="response response-old">
+                    {% render_partial recorder.html type:'mp3' title:'Feedback (Angelo K)' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                </div>
+            </div>
+            <button class="try-again-button">Record Again</button>
+        </div>
+    </div>
+</div>
 {% endblock body %}
