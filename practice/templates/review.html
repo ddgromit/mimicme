@@ -23,15 +23,17 @@
                 "What's on draft?"
             </div>
             <div class="expert">
-                {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Expert' %}
             </div>
             <div class="yours">
-                {% render_partial recorder.html type:'mp3' title:'Your Submission' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Your Submission' %}
             </div>
             <div class="responses">
+                <div class="responses-title">
+                    New Feedback on Your Recording:
+                </div>
                 <div class="response response-new">
-                    <div class="recency">New!</div>
-                    {% render_partial recorder.html type:'mp3' title:'Feedback (Angelo K)' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                    {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Feedback from Angelo' %}
                 </div>
             </div>
             <button class="try-again-button">Record Again</button>
@@ -41,14 +43,17 @@
                 "Red Wine, please."
             </div>
             <div class="expert">
-                {% render_partial recorder.html type:'mp3' title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Expert' %}
             </div>
             <div class="yours">
-                {% render_partial recorder.html type:'mp3' title:'Your Submission' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Your Submission' %}
             </div>
             <div class="responses">
+                <div class="responses-title">
+                    New Feedback on Your Recording:
+                </div>
                 <div class="response response-old">
-                    {% render_partial recorder.html type:'mp3' title:'Feedback (Angelo K)' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+                    {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Feedback from Jenny' %}
                 </div>
             </div>
             <button class="try-again-button">Record Again</button>
