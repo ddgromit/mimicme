@@ -11,11 +11,11 @@
         <param name="devicefont" value="false" />
         <param name="salign" value="" />
         <param name="allowScriptAccess" value="sameDomain" />
-        <param name="flashvars" value="{% if title %}&title={{title}}{% endif %}" />
+		<param name="flashvars" value="{% if title %}&title={{title}}{% endif %}{%if type %}&type={{type}}{%endif%}{%if mp3Url%}&mp3url={{mp3Url}}{%endif%}{%if upload_params%}&upload_params={{upload_params}}{%endif%}" />
         <!--[if !IE]>-->
         <object type="application/x-shockwave-flash" data="/static/recorder.swf" width="300" height="138">
             <param name="movie" value="/static/recorder.swf" />
-            <param name="flashvars" value="{% if title %}&title={{title}}{% endif %}{%if type %}&type={{type}}{%endif%}{%if mp3Url%}&mp3url={{mp3Url}}{%endif%}" />
+			<param name="flashvars" value="{% if title %}&title={{title}}{% endif %}{%if type %}&type={{type}}{%endif%}{%if mp3Url%}&mp3url={{mp3Url}}{%endif%}{%if upload_params%}&upload_params={{upload_params}}{%endif%}" />
             <param name="quality" value="high" />
             <param name="bgcolor" value="#ffffff" />
             <param name="play" value="true" />

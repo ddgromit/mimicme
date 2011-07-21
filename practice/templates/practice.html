@@ -61,7 +61,7 @@ window.onload = resizewin;
             <div class="instructions">
                 Now try it yourself.
             </div>
-            {% render_partial recorder.html type:'record' title:'test' %}
+            {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
         </div>
 
         <div class="next">

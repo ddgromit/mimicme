@@ -4,6 +4,7 @@ from django import http
 from django.core.files.storage import default_storage
 import logging
 import pprint
+import urllib
 
 
 def practice(request,phrase_set_id):
@@ -20,12 +21,17 @@ def practice(request,phrase_set_id):
     # Grab relevant phrase
     phrase = phrases[num - 1]
 
+    # Additional params we want passed through to uploading
+    upload_params = "phrase_id=" + str(phrase.id)
+    upload_params_encoded = urllib.quote_plus(upload_params)
+
     next_url = '?num=' + str(num + 1)
     return render(request,'practice.html',{
         'phrase_set':phrase_set,
         'last_one':last_one,
         'phrase':phrase,
         'next_url':next_url,
+        'upload_params_encoded':upload_params_encoded,
     })
 
 def sets(request):
@@ -53,7 +59,7 @@ def submit_recording(request):
         # Validation
         if "fileupload" not in request.FILES:
             raise Exception("Server Error: not file upload")
-        phrase_id = request.POST.get('phrase_id')
+        phrase_id = request.GET.get('phrase_id')
         if not phrase_id:
             raise Exception('no phrase id')
 
