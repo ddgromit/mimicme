@@ -4,6 +4,7 @@ from django import http
 from django.core.files.storage import default_storage
 import logging
 import pprint
+import settings
 import urllib
 
 
@@ -41,7 +42,22 @@ def sets(request):
     })
 
 def review(request):
-    return render(request,'review.html',{})
+    recordings = Recording.objects.filter(user = request.user)
+
+    recordingObjs = []
+    for recording in recordings:
+        media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
+        media_url_encoded = urllib.quote_plus(media_url)
+        responses = []
+        recordingObjs.append((
+            recording,
+            media_url_encoded,
+            responses,
+        ))
+
+    return render(request,'review.html',{
+        'recordingObjs':recordingObjs
+    })
 
 def testrecording(request):
     return render(request,'testrecording.html',{})

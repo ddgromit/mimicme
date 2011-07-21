@@ -18,16 +18,18 @@
         Review Your Feedback
     </div>
     <div class="feedbacks">
+        {% for recording,recording_url,responses in recordingObjs %}
         <div class="feedback">
             <div class="phrase">
-                "What's on draft?"
+                {{recording.phrase.english}}
             </div>
             <div class="expert">
                 {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Expert' %}
             </div>
             <div class="yours">
-                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Your Submission' %}
+                {% render_partial player.html mp3Url:recording_url title:'Your Recording' %}
             </div>
+            {% if responses|length > 0 %}
             <div class="responses">
                 <div class="responses-title">
                     New Feedback on Your Recording:
@@ -36,28 +38,10 @@
                     {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Feedback from Angelo' %}
                 </div>
             </div>
+            {% endif %}
             <button class="try-again-button">Record Again</button>
         </div>
-        <div class="feedback">
-            <div class="phrase">
-                "Red Wine, please."
-            </div>
-            <div class="expert">
-                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Expert' %}
-            </div>
-            <div class="yours">
-                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Your Submission' %}
-            </div>
-            <div class="responses">
-                <div class="responses-title">
-                    New Feedback on Your Recording:
-                </div>
-                <div class="response response-old">
-                    {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Feedback from Jenny' %}
-                </div>
-            </div>
-            <button class="try-again-button">Record Again</button>
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}
