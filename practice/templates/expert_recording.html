@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load render_partial %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/practice.css"/>
+{% endblock css %}
+
+
+{% block title %}Practice{%endblock%}
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+
+</script>
+{% endblock javascript %}
+
+
+{% block body %}
+<h1>{{phrase.english}}</h1>
+
+{% render_partial recorder.html type:'record' title:'Override the expert here' upload_params:upload_params_encoded%}
+
+{% endblock %}

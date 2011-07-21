@@ -6,4 +6,5 @@ urlpatterns = patterns('practice.views',
     (r'review/?$','review'),
     (r'testrecording/?$','testrecording'),
     (r'submit_recording/?','submit_recording'),
+    (r'expert_recording/(?P<phrase_id>\d+)/?','expert_recording'),
 )

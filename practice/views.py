@@ -84,18 +84,35 @@ def submit_recording(request):
         except Phrase.DoesNotExist:
             raise Exception('phrase with id does not exist: ' + str(phrase_id))
 
-        # Create the DB object
-        recording = Recording(
-            user = request.user,
-            phrase = phrase
-        )
-        recording.save()
+        if request.GET.get('type',None) == "expert":
+            filename = "expert" + str(phrase.id) + ".mp3"
+            default_storage.save(filename,request.FILES['fileupload'])
+        else:
+            # Create the DB object
+            recording = Recording(
+                user = request.user,
+                phrase = phrase
+            )
+            recording.save()
 
-        # Save the file to the uploaded folder
-        filename = "recording" + str(recording.id) + ".mp3"
-        default_storage.save(filename,request.FILES['fileupload'])
+            # Save the file to the uploaded folder
+            filename = "recording" + str(recording.id) + ".mp3"
+            default_storage.save(filename,request.FILES['fileupload'])
 
     else:
         pass
     return http.HttpResponse("<html><body><form method='POST' enctype='multipart/form-data'><input name='phrase_id'><input type='file' name='fileupload'><input type='submit' name='submit'></form></body></html>")
 
+def expert_recording(request,phrase_id):
+    try:
+        phrase = Phrase.objects.get(id=int(phrase_id))
+    except Phrase.DoesNotExist:
+        raise Exception('phrase with id does not exist: ' + str(phrase_id))
+
+    upload_params = "phrase_id=" + str(phrase.id) + "&type=expert"
+    upload_params_encoded = urllib.quote_plus(upload_params)
+
+    return render(request,'expert_recording.html',{
+        'phrase':phrase,
+        'upload_params_encoded':upload_params_encoded,
+    })
