@@ -1,5 +1,3 @@
 *.pyc
 settings_local.py
 .sass-cache
-uploadedmedia/
-
