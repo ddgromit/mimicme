@@ -28,12 +28,12 @@
 {% block body %}
 <div class="center-column">
     <div class="set">
-        At The Bar
+      {{ phrase_set.title }}
     </div>
     <div class="everything">
         <div class="prompt">
             <div class="phrase">
-                "What's on Draft?"
+                {{phrase.english}}
             </div>
         </div>
         <div class="expert">
@@ -51,7 +51,15 @@
         </div>
 
         <div class="next">
-            <button class="next-button">Next Phrase</button>
+            {% if last_one %}
+            <button class="next-button" onclick="window.location='/sets/'">
+                Finish
+            </button>
+            {% else %}
+            <button class="next-button" onclick="window.location='{{next_url}}'">
+                Next
+            </button>
+            {% endif %}
         </div>
     </div>
 </div>

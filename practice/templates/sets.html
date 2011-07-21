@@ -18,15 +18,11 @@
         Try Phrases from a Real Life Situation
     </div>
     <div class="sets">
-        <div class="set" onclick="window.location='/practice/'">
-            At a Bar
+        {% for phrase_set in phrase_sets %}
+        <div class="set" onclick="window.location='/practice/{{phrase_set.id}}/'">
+            {{ phrase_set.title }}
         </div>
-        <div class="set" onclick="window.location='/practice/'">
-            Driving
-        </div>
-        <div class="set" onclick="window.location='/practice/'">
-            Casual Restaurant
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}

@@ -57,7 +57,7 @@ MEDIA_URL = 'http://127.0.0.1:8000/uploadedmedia'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'wof+_&jwgce$*3ba8(o17^p1dq*=g522^g9j+=f-(61w=+-0a+'
@@ -109,9 +109,9 @@ INSTALLED_APPS = (
     'practice',
     'core',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 STATIC_URL = "/static/"

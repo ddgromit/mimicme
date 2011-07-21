@@ -1,0 +1,15 @@
+- model: practice.Phrase
+  pk: 1
+  fields:
+    english: "Two beers, please."
+
+- model: practice.Phrase
+  pk: 2
+  fields:
+    english: "I'll have what she's having."
+
+- model: practice.PhraseSet
+  pk: 1
+  fields:
+    title: "At the bar"
+    phrases: [1,2]

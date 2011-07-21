@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class Phrase(models.Model):
+    english = models.CharField(max_length=300)
+
+class PhraseSet(models.Model):
+    title = models.CharField(max_length=300)
+    phrases = models.ManyToManyField(Phrase)
+
+
