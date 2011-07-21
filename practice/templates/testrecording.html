@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load render_partial %}
+
+{% block css %}
+{{ block.super }}
+{% endblock css %}
+
+
+{% block title %}Test Recorder{%endblock%}
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+window.onload = resizewin; 
+ function resizewin (addmargin) { 
+  try{ 
+   if ($.browser.mozilla) { 
+    //$(window).resize(addMargin).resize(); 
+   } 
+  }catch(ex){} 
+
+  function addMargin() { 
+      //$(".yourself .recorder ").css('margin-left', window.outerWidth % 2 ? '0' : '0.5px') 
+  } 
+ } 
+
+</script>
+{% endblock javascript %}
+
+
+{% block body %}
+    {% render_partial recorder.html type:'record' title:'test' %}
+{% endblock %}

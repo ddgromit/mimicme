@@ -21,6 +21,20 @@
             //$("object").attr('height',50);
         }
     }
+
+window.onload = resizewin; 
+ function resizewin (addmargin) { 
+  try{ 
+   if ($.browser.mozilla) { 
+    $(window).resize(addMargin).resize(); 
+   } 
+  }catch(ex){} 
+
+  function addMargin() { 
+      $(".yourself .recorder ").css('margin-left', window.outerWidth % 2 ? '0' : '0.5px') 
+  } 
+ } 
+
 </script>
 {% endblock javascript %}
 
