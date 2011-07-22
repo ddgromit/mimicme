@@ -8,6 +8,9 @@ import settings
 import urllib
 
 
+def expert_url(phrase_id):
+    return "/uploadedmedia/expert" + str(phrase_id) + ".mp3"
+
 def practice(request,phrase_set_id):
     phrase_set = PhraseSet.objects.get(id=int(phrase_set_id))
     phrases = phrase_set.phrases.all()
@@ -33,6 +36,7 @@ def practice(request,phrase_set_id):
         'phrase':phrase,
         'next_url':next_url,
         'upload_params_encoded':upload_params_encoded,
+        'expert_url':expert_url(phrase.id),
     })
 
 def sets(request):
@@ -53,6 +57,7 @@ def review(request):
             recording,
             media_url_encoded,
             responses,
+            expert_url(recording.phrase.id),
         ))
 
     return render(request,'review.html',{
@@ -115,4 +120,5 @@ def expert_recording(request,phrase_id):
     return render(request,'expert_recording.html',{
         'phrase':phrase,
         'upload_params_encoded':upload_params_encoded,
+        'expert_url':expert_url(phrase_id),
     })

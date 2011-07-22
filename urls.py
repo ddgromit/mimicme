@@ -28,3 +28,4 @@ urlpatterns += practice.urls.urlpatterns
 import core.urls
 urlpatterns += core.urls.urlpatterns
 
+

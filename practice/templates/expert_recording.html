@@ -20,6 +20,13 @@
 {% block body %}
 <h1>{{phrase.english}}</h1>
 
+<h2>Record New</h2>
 {% render_partial recorder.html type:'record' title:'Override the expert here' upload_params:upload_params_encoded%}
+
+
+<h2>Previous Recording</h2>
+<i>If it doesn't exist, it won't play</i>
+{% render_partial player.html title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+
 
 {% endblock %}

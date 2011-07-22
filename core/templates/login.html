@@ -14,8 +14,11 @@
 
 {% block body %}
 
+<h3>Login</h3>
+<form action="/login/" method="post" accept-charset="utf-8">
+<label for="username">Username</label><input type="text" name="username" value="" id="username" />
+<label for="password">Password</label><input type="password" name="password" value="" id="password" />
+<p><input type="submit" value="Login →"></p>
 
-<div class="register">
-    {{form}}
-</div>
+
 {% endblock body %}

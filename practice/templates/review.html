@@ -18,13 +18,13 @@
         Review Your Feedback
     </div>
     <div class="feedbacks">
-        {% for recording,recording_url,responses in recordingObjs %}
+        {% for recording,recording_url,responses,expert_url in recordingObjs %}
         <div class="feedback">
             <div class="phrase">
                 {{recording.phrase.english}}
             </div>
             <div class="expert">
-                {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Expert' %}
+                {% render_partial player.html mp3Url:expert_url title:'Expert' %}
             </div>
             <div class="yours">
                 {% render_partial player.html mp3Url:recording_url title:'Your Recording' %}
@@ -39,7 +39,7 @@
                 </div>
             </div>
             {% endif %}
-            <button class="try-again-button">Record Again</button>
+            <button class="try-again-button" disabled=true>Record Again</button>
         </div>
         {% endfor %}
     </div>

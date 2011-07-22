@@ -54,7 +54,7 @@ window.onload = resizewin;
             <div class="instructions">
                 Hear the expert say it.
             </div>
-            {% render_partial player.html title:'Expert Recording' mp3Url:'http://localhost:8000/static/sample.mp3' %}
+            {% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
         </div>
 
         <div class="yourself">
@@ -66,7 +66,7 @@ window.onload = resizewin;
 
         <div class="next">
             {% if last_one %}
-            <button class="next-button" onclick="window.location='/sets/'">
+            <button class="next-button" onclick="window.location='/review/'">
                 Finish
             </button>
             {% else %}
