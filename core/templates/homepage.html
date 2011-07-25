@@ -15,7 +15,43 @@
 {% block body %}
 
 
-<div class="register">
-    {{form}}
+<div id="container">
+    <h1 class="title">Mimic Me</h1>
+    <div class="bullets">
+        <li>
+            <ul>Does something</ul>
+        </li>
+    </div>
+    <div class="register">
+        <h2>Register</h2>
+        <form method="POST">
+            {{ errors }}
+            <div class="form-line">
+                <label>Username</label>
+                {{form.username}}
+                <div class="errors">
+                    {{form.username.errors}}
+                </div>
+            </div>
+            <div class="form-line">
+                <label>Email</label>
+                {{form.email}}
+                <div class="errors">
+                    {{form.errors.email}}
+                </div>
+            </div>
+            <div class="form-line">
+                <label>Password</label>
+                {{form.password}}
+                <div class="errors">
+                    {{form.errors.password}}
+                </div>
+            </div>
+            <div class="form-line">
+                <input type="submit" value="Register" />
+            </div>
+        </form>
+    </div>
+    <div style="clear: both;"></div>
 </div>
 {% endblock body %}

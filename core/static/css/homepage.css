@@ -1,0 +1,14 @@
+#container {
+  width: 1000px;
+  margin: 0 auto; }
+
+.title {
+  margin-bottom: 30px; }
+
+.bullets {
+  float: left;
+  width: 400px; }
+
+.register {
+  float: right;
+  width: 400px; }
