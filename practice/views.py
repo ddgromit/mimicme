@@ -2,6 +2,7 @@ from models import *
 from django.shortcuts import render
 from django import http
 from django.core.files.storage import default_storage
+from django.contrib.auth.decorators import login_required
 import logging
 import pprint
 import settings
@@ -11,6 +12,7 @@ import urllib
 def expert_url(phrase_id):
     return "/uploadedmedia/expert" + str(phrase_id) + ".mp3"
 
+@login_required
 def practice(request,phrase_set_id):
     phrase_set = PhraseSet.objects.get(id=int(phrase_set_id))
     phrases = phrase_set.phrases.all()
@@ -39,12 +41,14 @@ def practice(request,phrase_set_id):
         'expert_url':expert_url(phrase.id),
     })
 
+@login_required
 def sets(request):
     phrase_sets = PhraseSet.objects.all()
     return render(request,'sets.html',{
         'phrase_sets':phrase_sets,
     })
 
+@login_required
 def review(request):
     recordings = Recording.objects.filter(user = request.user)
 

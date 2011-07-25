@@ -66,13 +66,15 @@ def login_handler(request):
       if user.is_active:
         login(request, user)
         # success
-        return HttpResponseRedirect('/sets/')
+        return http.HttpResponseRedirect('/sets/')
       else:
         # disabled account
         raise Exception('invalid account')
     else:
       # invalid login
       raise Exception('invalid login')
+
+  return render(request,'login.html',{})
 
 def logout_handler(request):
     logout(request)
