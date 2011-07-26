@@ -18,7 +18,7 @@
         Review Your Feedback
     </div>
     <div class="feedbacks">
-        {% for recording,recording_url,responses,expert_url in recordingObjs %}
+        {% for recording,recording_url,responseObjs,expert_url in recordingObjs %}
         <div class="feedback">
             <div class="phrase">
                 {{recording.phrase.english}}
@@ -29,16 +29,23 @@
             <div class="yours">
                 {% render_partial player.html mp3Url:recording_url title:'Your Recording' %}
             </div>
-            {% if responses|length > 0 %}
+
+
+            {% if responseObjs|length > 0 %}
+            <div class="responses-title">
+                Responses Given So Far:
+            </div>
             <div class="responses">
-                <div class="responses-title">
-                    New Feedback on Your Recording:
+                {% for response, response_url in responseObjs %}
+                <div class="response">
+                    <div class="response response-new">
+                        {% render_partial player.html mp3Url:response_url title:'A response' %}
+                    </div>
                 </div>
-                <div class="response response-new">
-                    {% render_partial player.html mp3Url:'http://localhost:8000/static/sample.mp3' title:'Feedback from Angelo' %}
-                </div>
+                {% endfor %}
             </div>
             {% endif %}
+
             <button class="try-again-button" disabled=true>Record Again</button>
         </div>
         {% endfor %}

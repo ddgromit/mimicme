@@ -59,11 +59,12 @@ def review(request):
     for recording in recordings:
         media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
         media_url_encoded = urllib.quote_plus(media_url)
-        responses = []
+        responses = Response.objects.filter(recording=recording).order_by('-created')
+        responseObjs = [(response,response_url(response.id)) for response in responses]
         recordingObjs.append((
             recording,
             media_url_encoded,
-            responses,
+            responseObjs,
             expert_url(recording.phrase.id),
         ))
 
