@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'withdash.html' %}
 
 {% block css %}
 {{ block.super }}
@@ -12,7 +12,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
-{% block body %}
+{% block content %}
 <div class="center-column">
     <div class="title">
         Try Phrases from a Real Life Situation
@@ -25,4 +25,4 @@
         {% endfor %}
     </div>
 </div>
-{% endblock body %}
+{% endblock content %}

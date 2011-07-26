@@ -7,10 +7,9 @@
 {% endblock css %}
 
 
-{% block title %}Practice{%endblock%}
+{% block title %}Practice | socialite{%endblock%}
 {% block javascript %}
 {{ block.super }}
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">
     function recorderNeedsPermissions(val) {
         console.log("Recorder needs permission: " + val);
@@ -39,7 +38,7 @@ window.onload = resizewin;
 {% endblock javascript %}
 
 
-{% block body %}
+{% block content %}
 <div class="center-column">
     <div class="set">
       {{ phrase_set.title }}

@@ -5,50 +5,71 @@
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/homepage.css"/>
 {% endblock css %}
 
-{% block title %}Mimic Me{%endblock%}
+{% block title %}verbalite{%endblock%}
 
 {% block javascript %}
 {{ block.super }}
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
 {% block body %}
-
+<div class="homepage-dash">
+    <div class="dash-contents">
+        <div class="logo">Verbalite</div>
+        <div class="links">
+            {% if user.is_authenticated %}
+            <a href="/sets/">Practice</a>
+            <a href="/logout/">Logout</a>
+            {% else %}
+            <a href="/login/">Login</a>
+            <!--<a href="/register/">Register</a>-->
+            {% endif %}
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
 
 <div id="container">
-    <h1 class="title">Mimic Me</h1>
+    <div class="title">
+        Verbalite
+    </div>
+    <div class="subtitle">
+        Learn to Talk Like a Native
+    </div>
     <div class="bullets">
-        <li>
-            <ul>Does something</ul>
-        </li>
+        <ul>
+            <li class='item'>Practice By Speaking</li>
+            <li class='item'>Get feedback from real speakers</li>
+        </ul>
     </div>
     <div class="register">
-        <h2>Register</h2>
+        <div class="register-subtitle">Try It Free!</div>
         <form method="POST">
             {{ errors }}
             <div class="form-line">
-                <label>Username</label>
+                <label>Username:</label>
                 {{form.username}}
                 <div class="errors">
                     {{form.username.errors}}
                 </div>
             </div>
             <div class="form-line">
-                <label>Email</label>
+                <label>Email:</label>
                 {{form.email}}
                 <div class="errors">
                     {{form.errors.email}}
                 </div>
             </div>
             <div class="form-line">
-                <label>Password</label>
+                <label>Password:</label>
                 {{form.password}}
                 <div class="errors">
                     {{form.errors.password}}
                 </div>
             </div>
             <div class="form-line">
-                <input type="submit" value="Register" />
+                <button type="submit" value="Register" class="submit" onclick="$('#register-form').submit()">
+                    Create Your Account
+                </button>
             </div>
         </form>
     </div>

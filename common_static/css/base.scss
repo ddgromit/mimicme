@@ -6,11 +6,13 @@ html {
     font-family: Verdana, Arial;
 }
 body {
+    margin: 0;
+    padding: 0;
     line-height: 1.5;
     min-height: 600px;
 }
 body.site {
-    background-color: $sitebgcolor;
+    //background-color: $sitebgcolor;
 }
 a img {
     border: none;

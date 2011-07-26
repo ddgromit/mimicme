@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'withdash.html' %}
 
 {% block css %}
 {{ block.super }}
@@ -9,10 +9,9 @@
 
 {% block javascript %}
 {{ block.super }}
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
-{% block body %}
+{% block content %}
 
 <h3>Login</h3>
 <form action="/login/" method="post" accept-charset="utf-8">
@@ -21,4 +20,4 @@
 <p><input type="submit" value="Login →"></p>
 
 
-{% endblock body %}
+{% endblock content %}

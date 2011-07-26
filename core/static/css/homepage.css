@@ -1,14 +1,78 @@
+.homepage-dash {
+  width: 800px;
+  margin: 0 auto 0 auto;
+  opacity: 0.9;
+  background-color: white;
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
+  -moz-border-radius: 0px 0px 8px 8px;
+  -webkit-border-radius: 0px 0px 8px 8px; }
+  .homepage-dash .logo {
+    float: left;
+    font-family: Georgia;
+    font-size: 26px;
+    font-weight: bold;
+    color: #005; }
+  .homepage-dash .links {
+    float: right; }
+
 #container {
   width: 800px;
-  margin: 0 auto; }
+  margin: 40px auto 0 auto;
+  opacity: 0.9;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  color: black;
+  padding-bottom: 30px; }
 
 .title {
-  margin-bottom: 30px; }
+  margin-bottom: 8px;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 36px;
+  font-weight: bold;
+  display: none; }
+
+.subtitle {
+  margin-bottom: 45px;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 30px; }
 
 .bullets {
   float: left;
   width: 400px; }
+  .bullets ul, .bullets li {
+    margin: none;
+    padding: none; }
+  .bullets .item {
+    font-size: 20px; }
 
 .register {
   float: right;
-  width: 400px; }
+  width: 350px; }
+  .register .register-subtitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold; }
+  .register .form-line {
+    margin-bottom: 5px; }
+    .register .form-line label {
+      width: 120px;
+      display: inline-block;
+      font-size: 18px; }
+    .register .form-line input[type="text"],
+    .register .form-line input[type="password"] {
+      width: 200px;
+      font-size: 18px; }
+    .register .form-line .submit {
+      margin-top: 10px;
+      width: 330px;
+      font-size: 24px;
+      padding: 6px 3px; }
+
+html {
+  background: black url(/static/images/bg-bar.jpg) no-repeat center center fixed; }
