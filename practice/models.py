@@ -22,4 +22,10 @@ class Recording(models.Model):
     def __str__(self):
         return self.user.username + " - " + str(self.phrase)
 
+class Response(models.Model):
+    giver = models.ForeignKey('auth.User')
+    recording = models.ForeignKey('Recording')
+    created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.giver.username + " to " + self.recording.user.username + " for \"" + str(self.recording.phrase) + "\""

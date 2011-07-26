@@ -1,0 +1,50 @@
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+@mixin shadow($color: #333333, $distance: 0px, $spread:2px) {
+  -moz-box-shadow: 0px 1px 2px $color;
+  -webkit-box-shadow: $distance $distance $spread $color;
+  box-shadow: 0px 1px 2px $color;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
+}
+
+
+.center-column {
+    margin: 0 auto;
+    width: 320px;
+}
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+.phrase {
+    font-size: 12px;
+    color: darkblue;
+
+}
+
+div.feedback-noresponses {
+    @include shadow(#f22,0px, 8px);
+}
+.feedback {
+    margin-bottom: 30px;
+    @include border-radius(7px);
+    @include shadow(#aaa,4px, 8px);
+    padding: 8px;
+
+
+    .give-feedback-button {
+        font-size: 14px;
+    }
+
+    .responses-title {
+        font-weight: bold;
+        color: darkblue;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load render_partial %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/give_response.css"/>
+{% endblock css %}
+
+{% block title %}Review{%endblock%}
+
+{% block javascript %}
+{{ block.super }}
+{% endblock javascript %}
+
+{% block body %}
+<div class="center-column">
+    <div class="title">
+        Give Feedback
+    </div>
+    <div class="feedbacks">
+        {% for recording,recording_url,responseObjs,expert_url,upload_params_encoded in recordingObjs %}
+        <div class="feedback {% ifequal responseObjs|length 0 %}feedback-noresponses{%endifequal%}">
+            <div class="phrase">
+                {{recording.phrase.english}} (by {{ recording.user.username }})
+            </div>
+            <div class="expert">
+                {% render_partial player.html mp3Url:expert_url title:'Expert' %}
+            </div>
+            <div class="yours">
+                {% render_partial player.html mp3Url:recording_url title:'User Recording' %}
+            </div>
+            <div class="give-response">
+                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
+            </div>
+            {% if responseObjs|length > 0 %}
+            <div class="responses-title">
+                Responses Given So Far:
+            </div>
+            <div class="responses">
+                {% for response, response_url in responseObjs %}
+                <div class="response">
+                    <div class="response response-new">
+                        {% render_partial player.html mp3Url:response_url title:'A response' %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

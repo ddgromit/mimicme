@@ -29,5 +29,12 @@ window.onload = resizewin;
 
 
 {% block body %}
+    <h1>Recorder</h1>
     {% render_partial recorder.html type:'record' title:'test' %}
+    <h1>Practice submit</h1>
+    Additional Vars: <input type="text" name="vars" id="additionalvars"><BR />
+    
+    <form action="/submit_recording/">
+    </form>
+
 {% endblock %}

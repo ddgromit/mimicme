@@ -4,3 +4,4 @@ from django.contrib import admin
 admin.site.register(Phrase)
 admin.site.register(PhraseSet)
 admin.site.register(Recording)
+admin.site.register(Response)

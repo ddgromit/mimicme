@@ -9,6 +9,9 @@ import settings
 import urllib
 
 
+def response_url(response_id):
+    return "/uploadedmedia/response" + str(response_id) + ".mp3"
+
 def expert_url(phrase_id):
     return "/uploadedmedia/expert" + str(phrase_id) + ".mp3"
 
@@ -84,29 +87,46 @@ def submit_recording(request):
         # Validation
         if "fileupload" not in request.FILES:
             raise Exception("Server Error: not file upload")
-        phrase_id = request.GET.get('phrase_id')
-        if not phrase_id:
-            raise Exception('no phrase id')
 
-        try:
-            phrase = Phrase.objects.get(id=int(phrase_id))
-        except Phrase.DoesNotExist:
-            raise Exception('phrase with id does not exist: ' + str(phrase_id))
+        if request.GET.get('type',None) == "response":
+                recording_id = request.GET.get('recording_id',None)
+                if not recording_id:
+                    raise Exception('No recording id')
+                recording = Recording.objects.get(id=int(recording_id))
 
-        if request.GET.get('type',None) == "expert":
-            filename = "expert" + str(phrase.id) + ".mp3"
-            default_storage.save(filename,request.FILES['fileupload'])
+                response = Response(
+                    giver=request.user,
+                    recording=recording,
+                )
+                response.save()
+
+                filename = "response" + str(response.id) + ".mp3"
+                default_storage.save(filename,request.FILES['fileupload'])
         else:
-            # Create the DB object
-            recording = Recording(
-                user = request.user,
-                phrase = phrase
-            )
-            recording.save()
+            # Validate phrase exists
+            phrase_id = request.GET.get('phrase_id')
+            if not phrase_id:
+                raise Exception('no phrase id')
 
-            # Save the file to the uploaded folder
-            filename = "recording" + str(recording.id) + ".mp3"
-            default_storage.save(filename,request.FILES['fileupload'])
+            try:
+                phrase = Phrase.objects.get(id=int(phrase_id))
+            except Phrase.DoesNotExist:
+                raise Exception('phrase with id does not exist: ' + str(phrase_id))
+
+            if request.GET.get('type',None) == "expert":
+                filename = "expert" + str(phrase.id) + ".mp3"
+                default_storage.save(filename,request.FILES['fileupload'])
+            else:
+                # Create the DB object
+                recording = Recording(
+                    user = request.user,
+                    phrase = phrase
+                )
+                recording.save()
+
+                # Save the file to the uploaded folder
+                filename = "recording" + str(recording.id) + ".mp3"
+                default_storage.save(filename,request.FILES['fileupload'])
 
     else:
         pass
@@ -125,4 +145,33 @@ def expert_recording(request,phrase_id):
         'phrase':phrase,
         'upload_params_encoded':upload_params_encoded,
         'expert_url':expert_url(phrase_id),
+    })
+
+@login_required
+def give_response(request):
+    recordings = Recording.objects.order_by('-created')
+
+    recordingObjs = []
+    for recording in recordings:
+        media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
+        media_url_encoded = urllib.quote_plus(media_url)
+        responses = Response.objects.filter(recording=recording)
+        responseObjs = [(response,response_url(response.id)) for response in responses]
+
+        # Additional params we want passed through to uploading
+        upload_params = "type=response&recording_id=" + str(recording.id)
+        upload_params_encoded = urllib.quote_plus(upload_params)
+
+        recordingObjs.append((
+            recording,
+            media_url_encoded,
+            responseObjs,
+            expert_url(recording.phrase.id),
+            upload_params_encoded,
+        ))
+
+
+
+    return render(request,'give_response.html',{
+        'recordingObjs':recordingObjs,
     })
