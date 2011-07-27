@@ -42,6 +42,8 @@ def practice(request,phrase_set_id):
         'next_url':next_url,
         'upload_params_encoded':upload_params_encoded,
         'expert_url':expert_url(phrase.id),
+        'phrase_num':num,
+        'phrases_in_set':len(phrases),
     })
 
 @login_required

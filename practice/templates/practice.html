@@ -40,13 +40,21 @@ window.onload = resizewin;
 
 {% block content %}
 <div class="center-column">
-    <div class="set">
-      {{ phrase_set.title }}
+    <div class="info">
+        <div class="set">
+          {{ phrase_set.title }}
+        </div>
+        <div class="progress">
+            Phrase #{{ phrase_num }} out of {{ phrases_in_set }}
+        </div>
     </div>
     <div class="everything">
         <div class="prompt">
+            <div class="instructions">
+                Phrase or word we're practicing:
+            </div>
             <div class="phrase">
-                {{phrase.english}}
+                "{{phrase.english}}"
             </div>
         </div>
         <div class="expert">
@@ -58,7 +66,8 @@ window.onload = resizewin;
 
         <div class="yourself">
             <div class="instructions">
-                Now try it yourself.
+                Now try saying "{{phrase.english}}" yourself.  <BR />
+                When you are satisfied with your recording, click "Submit" and you'll get feedback later from other language learners.
             </div>
             {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
         </div>
@@ -66,11 +75,11 @@ window.onload = resizewin;
         <div class="next">
             {% if last_one %}
             <button class="next-button" onclick="window.location='/review/'">
-                Finish
+                Finish Set
             </button>
             {% else %}
             <button class="next-button" onclick="window.location='{{next_url}}'">
-                Next
+                Next Phrase
             </button>
             {% endif %}
         </div>

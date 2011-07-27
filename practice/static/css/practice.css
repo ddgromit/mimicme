@@ -2,27 +2,24 @@
   width: 400px;
   margin: 0 auto; }
 
-.set {
-  font-size: 26px;
-  color: white;
+.info {
+  margin: 20px 0 40px 0;
+  background-color: #ddd;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: black;
+  text-align: center;
   padding: 8px 15px;
-  background-color: #333;
-  border-radius: 30px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  margin-bottom: 40px;
-  width: 360px;
-  text-align: center; }
+  width: 360px; }
+  .info .set {
+    font-size: 20px; }
 
-.everything {
-  -moz-box-shadow: 0px 1px 2px #333333;
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  box-shadow: 0px 1px 2px #333333;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
-  width: 350px;
-  padding: 20px; }
-
+.prompt .instructions {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px; }
 .prompt .phrase {
   font-size: 36px;
   margin-bottom: 20px;
