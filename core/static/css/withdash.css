@@ -1,21 +1,40 @@
+html {
+  background-image: url(/static/images/whitey-pattern.png);
+  background-repeat: repeat-x repeat-y; }
+
 .dash {
-  width: 100%;
-  background-color: #4DB8FF;
-  padding: 10px 0px;
-  margin: 0 auto; }
-  .dash .dash-contents {
-    width: 800px;
-    margin: 0 auto; }
-    .dash .dash-contents .logo {
-      font-size: 18px;
-      font-weight: bold;
-      float: left;
-      width: 100px;
-      margin-left: 10px; }
-    .dash .dash-contents .links {
-      width: 300px;
-      float: right;
-      margin-right: 10px;
-      text-align: right; }
-      .dash .dash-contents .links a {
-        margin-left: 10px; }
+  width: 800px;
+  margin: 0 auto 0 auto;
+  opacity: 0.9;
+  background-color: white;
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
+  -moz-border-radius: 0px 0px 8px 8px;
+  -webkit-border-radius: 0px 0px 8px 8px; }
+  .dash .logo {
+    float: left;
+    height: 65px; }
+  .dash .links {
+    float: right;
+    margin-top: 17px;
+    font-size: 20px;
+    margin-right: 20px;
+    font-weight: bold; }
+    .dash .links a {
+      text-decoration: none;
+      color: darkblue;
+      margin-left: 20px; }
+    .dash .links a:hover {
+      text-decoration: underline; }
+
+.column-800 {
+  width: 800px;
+  margin: 40px auto 0 auto;
+  opacity: 0.9;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  color: black;
+  padding-bottom: 30px; }

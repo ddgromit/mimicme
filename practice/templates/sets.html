@@ -3,6 +3,7 @@
 {% block css %}
 {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sets.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ui-lightness/jquery-ui-1.8.7.custom.css"/>
 {% endblock css %}
 
 {% block title %}Sets{%endblock%}
@@ -13,9 +14,12 @@
 {% endblock javascript %}
 
 {% block content %}
-<div class="center-column">
+<div class="column-800">
     <div class="title">
-        Try Phrases from a Real Life Situation
+        Practice Sets
+    </div>
+    <div class="instructions">
+        Each set helps you practice a different set of sounds english language learners try to learn.  Pick any one to get started.
     </div>
     <div class="sets">
         {% for phrase_set in phrase_sets %}

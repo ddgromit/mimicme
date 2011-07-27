@@ -13,11 +13,21 @@
 
 {% block content %}
 
-<h3>Login</h3>
-<form action="/login/" method="post" accept-charset="utf-8">
-<label for="username">Username</label><input type="text" name="username" value="" id="username" />
-<label for="password">Password</label><input type="password" name="password" value="" id="password" />
-<p><input type="submit" value="Login →"></p>
-
+<div class="column-800">
+    <div class="container">
+        <div class="header">Login</div>
+        <form action="/login/" method="post">
+            <div class="form-line">
+                <label for="username">Username</label>
+                <input type="text" name="username" value="" id="username" />
+            </div>
+            <div class="form-line">
+                <label for="password">Password</label>
+                <input type="password" name="password" value="" id="password" />
+            </div>
+            <button class="submit" type="submit" value="Login →" onclick="$('form').submit()">Login</button>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

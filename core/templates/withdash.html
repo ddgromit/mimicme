@@ -13,16 +13,18 @@
 {% endblock javascript %}
 
 {% block body %}
+
+
 <div class="dash">
     <div class="dash-contents">
-        <div class="logo">Verbalite</div>
+        <img class="logo" src="{{STATIC_URL}}images/logo.png">
         <div class="links">
             {% if user.is_authenticated %}
             <a href="/sets/">Practice</a>
-            <a href="/review/">Review</a>
+            <a href="/logout/">Logout</a>
             {% else %}
             <a href="/login/">Login</a>
-            <a href="/register/">Register</a>
+            <!--<a href="/register/">Register</a>-->
             {% endif %}
         </div>
         <div style="clear: both;"></div>

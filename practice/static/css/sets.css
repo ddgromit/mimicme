@@ -1,19 +1,22 @@
-.center-column {
-  width: 800px;
-  margin: 0 auto; }
-
 .title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold; }
+
+.instructions {
+  margin-top: 5px;
+  width: 600px; }
 
 .sets {
   margin-top: 30px;
-  width: 600px; }
+  width: 400px; }
   .sets .set {
     background-color: #FFF6D9;
     font-size: 24px;
     cursor: pointer;
     margin-bottom: 10px;
-    padding: 2px 4px; }
+    padding: 2px 6px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px; }
   .sets .set:hover {
     background-color: #FFF7BD; }
