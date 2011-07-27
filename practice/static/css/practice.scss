@@ -15,17 +15,17 @@ body {
 }
 .center-column {
     width: 400px;
-    margin: 0 auto;
+    margin-left: 20px;
 }
 
 .info {
     margin: 20px 0 40px 0;
-    background-color: #ddd;
+    background-color: #E8FFCD;
     @include border-radius(20px);
     color: black;
     text-align: center;
     padding: 8px 15px;
-    width: 360px;
+    width: 700px;
     .set {
         font-size: 20px;
     }

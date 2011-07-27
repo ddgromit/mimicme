@@ -39,49 +39,51 @@ window.onload = resizewin;
 
 
 {% block content %}
-<div class="center-column">
-    <div class="info">
-        <div class="set">
-          {{ phrase_set.title }}
-        </div>
-        <div class="progress">
-            Phrase #{{ phrase_num }} out of {{ phrases_in_set }}
-        </div>
-    </div>
-    <div class="everything">
-        <div class="prompt">
-            <div class="instructions">
-                Phrase or word we're practicing:
+<div class="column-800">
+    <div class="center-column">
+        <div class="info">
+            <div class="set">
+              {{ phrase_set.title }}
             </div>
-            <div class="phrase">
-                "{{phrase.english}}"
+            <div class="progress">
+                Phrase #{{ phrase_num }} out of {{ phrases_in_set }}
             </div>
         </div>
-        <div class="expert">
-            <div class="instructions">
-                Hear the expert say it.
+        <div class="everything">
+            <div class="prompt">
+                <div class="instructions">
+                    Phrase or word we're practicing:
+                </div>
+                <div class="phrase">
+                    "{{phrase.english}}"
+                </div>
             </div>
-            {% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
-        </div>
+            <div class="expert">
+                <div class="instructions">
+                    Hear the expert say it.
+                </div>
+                {% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
+            </div>
 
-        <div class="yourself">
-            <div class="instructions">
-                Now try saying "{{phrase.english}}" yourself.  <BR />
-                When you are satisfied with your recording, click "Submit" and you'll get feedback later from other language learners.
+            <div class="yourself">
+                <div class="instructions">
+                    Now try saying "{{phrase.english}}" yourself.  <BR />
+                    When you are satisfied with your recording, click "Submit" and you'll get feedback later from other language learners.
+                </div>
+                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
             </div>
-            {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
-        </div>
 
-        <div class="next">
-            {% if last_one %}
-            <button class="next-button" onclick="window.location='/review/'">
-                Finish Set
-            </button>
-            {% else %}
-            <button class="next-button" onclick="window.location='{{next_url}}'">
-                Next Phrase
-            </button>
-            {% endif %}
+            <div class="next">
+                {% if last_one %}
+                <button class="next-button" onclick="window.location='/review/'">
+                    Finish Set
+                </button>
+                {% else %}
+                <button class="next-button" onclick="window.location='{{next_url}}'">
+                    Next Phrase
+                </button>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
