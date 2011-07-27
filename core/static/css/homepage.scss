@@ -23,13 +23,21 @@
 
     .logo {
         float: left;
-        font-family: Georgia;
-        font-size: 26px;
-        font-weight: bold;
-        color: #005;
+        height: 65px;
     }
     .links {
         float: right;
+        margin-top: 17px;
+        font-size: 20px;
+        margin-right: 20px;
+        font-weight: bold;
+        a {
+            text-decoration: none;
+            color: darkblue;
+        }
+        a:hover {
+            text-decoration:underline;
+        }
     }
 }
 
@@ -102,5 +110,10 @@
     }
 }
 html {
-    background: black url(/static/images/bg-bar.jpg) no-repeat center center fixed;
+    //background: black url(/static/images/bg-bar.jpg) no-repeat center center fixed;
+
+
+    background-image: url(/static/images/whitey-pattern.png);
+    background-repeat: repeat-x repeat-y;
+    
 }

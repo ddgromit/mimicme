@@ -9,12 +9,18 @@
   -webkit-border-radius: 0px 0px 8px 8px; }
   .homepage-dash .logo {
     float: left;
-    font-family: Georgia;
-    font-size: 26px;
-    font-weight: bold;
-    color: #005; }
+    height: 65px; }
   .homepage-dash .links {
-    float: right; }
+    float: right;
+    margin-top: 17px;
+    font-size: 20px;
+    margin-right: 20px;
+    font-weight: bold; }
+    .homepage-dash .links a {
+      text-decoration: none;
+      color: darkblue; }
+    .homepage-dash .links a:hover {
+      text-decoration: underline; }
 
 #container {
   width: 800px;
@@ -75,4 +81,5 @@
       padding: 6px 3px; }
 
 html {
-  background: black url(/static/images/bg-bar.jpg) no-repeat center center fixed; }
+  background-image: url(/static/images/whitey-pattern.png);
+  background-repeat: repeat-x repeat-y; }
