@@ -57,6 +57,14 @@ def sets(request):
 def review(request):
     recordings = Recording.objects.filter(user = request.user)
 
+    phrase_set = None
+    if request.GET.get('set_id'):
+        set_id = int(request.GET.get('set_id'))
+        phrase_set = PhraseSet.objects.get(id=set_id)
+        phrases = list(phrase_set.phrases.all())
+        recordings = recordings.filter(phrase__in = phrases)
+
+
     recordingObjs = []
     for recording in recordings:
         media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
@@ -71,7 +79,8 @@ def review(request):
         ))
 
     return render(request,'review.html',{
-        'recordingObjs':recordingObjs
+        'recordingObjs':recordingObjs,
+        'phrase_set':phrase_set,
     })
 
 def testrecording(request):
