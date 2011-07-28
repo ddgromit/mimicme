@@ -144,6 +144,8 @@ def submit_recording(request):
 
             if request.GET.get('type',None) == "expert":
                 filename = "expert" + str(phrase.id) + ".mp3"
+                if default_storage.exists(filename):
+                    default_storage.delete(filename)
                 default_storage.save(filename,request.FILES['fileupload'])
             else:
                 # Create the DB object
