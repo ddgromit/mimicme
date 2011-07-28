@@ -7,13 +7,8 @@ import logging
 import pprint
 import settings
 import urllib
+from practice import lib
 
-
-def response_url(response_id):
-    return "/uploadedmedia/response" + str(response_id) + ".mp3"
-
-def expert_url(phrase_id):
-    return "/uploadedmedia/expert" + str(phrase_id) + ".mp3"
 
 @login_required
 def practice(request,phrase_set_id):
@@ -41,7 +36,7 @@ def practice(request,phrase_set_id):
         'phrase':phrase,
         'next_url':next_url,
         'upload_params_encoded':upload_params_encoded,
-        'expert_url':expert_url(phrase.id),
+        'expert_url':lib.expert_url(phrase.id),
         'phrase_num':num,
         'phrases_in_set':len(phrases),
     })
@@ -84,15 +79,15 @@ def review(request):
 
     recordingObjs = []
     for recording in recordings:
-        media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
+        media_url = lib.recording_url(recording.id)
         media_url_encoded = urllib.quote_plus(media_url)
         responses = Response.objects.filter(recording=recording).order_by('-created')
-        responseObjs = [(response,response_url(response.id)) for response in responses]
+        responseObjs = [(response,lib.response_url(response.id)) for response in responses]
         recordingObjs.append((
             recording,
             media_url_encoded,
             responseObjs,
-            expert_url(recording.phrase.id),
+            lib.expert_url(recording.phrase.id),
         ))
 
     return render(request,'review.html',{
@@ -185,7 +180,7 @@ def expert_recording(request,phrase_id):
     return render(request,'expert_recording.html',{
         'phrase':phrase,
         'upload_params_encoded':upload_params_encoded,
-        'expert_url':expert_url(phrase_id),
+        'expert_url':lib.expert_url(phrase_id),
 
         'filename':filename,
         'exists':exists,
@@ -199,10 +194,10 @@ def give_response(request):
 
     recordingObjs = []
     for recording in recordings:
-        media_url = settings.MEDIA_URL + "recording" + str(recording.id) + ".mp3"
+        media_url = lib.recording_url(recording.id)
         media_url_encoded = urllib.quote_plus(media_url)
         responses = Response.objects.filter(recording=recording)
-        responseObjs = [(response,response_url(response.id)) for response in responses]
+        responseObjs = [(response,lib.response_url(response.id)) for response in responses]
 
         # Additional params we want passed through to uploading
         upload_params = "type=response&recording_id=" + str(recording.id)
@@ -212,7 +207,7 @@ def give_response(request):
             recording,
             media_url_encoded,
             responseObjs,
-            expert_url(recording.phrase.id),
+            lib.expert_url(recording.phrase.id),
             upload_params_encoded,
         ))
 
