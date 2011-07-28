@@ -22,9 +22,25 @@
         Each set helps you practice a different set of sounds english language learners try to learn.  Pick any one to get started.
     </div>
     <div class="sets">
-        {% for phrase_set in phrase_sets %}
-        <div class="set" onclick="window.location='/practice/{{phrase_set.id}}/'">
-            {{ phrase_set.title }}
+        {% for phrase_set,recordings,responses,status in phrase_set_objs %}
+        <div class="set">
+            <div class="set-title" onclick="window.location='/practice/{{phrase_set.id}}/'">
+                <a href="/practice/{{phrase_set.id}}/">{{ phrase_set.title }}</a>
+            </div>
+            <div class="set-status">
+                {% ifequal status 'untaken' %}
+                New
+                {% endifequal %}
+                {% ifequal status 'taken' %}
+                Awaiting feedback
+                {% endifequal %}
+                {% ifequal status 'responses' %}
+                <a href="/review/?set_id={{phrase_set.id}}">
+                    {{responses|length}} responses
+                </a>
+                {% endifequal %}
+            </div>
+            <div style="clear: both"></div>
         </div>
         {% endfor %}
     </div>

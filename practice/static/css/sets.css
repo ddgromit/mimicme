@@ -8,15 +8,23 @@
 
 .sets {
   margin-top: 30px;
-  width: 400px; }
+  width: 600px; }
+  .sets a {
+    color: blue;
+    text-decoration: none; }
+  .sets a:hover {
+    text-decoration: underline; }
   .sets .set {
-    background-color: #FFF6D9;
     font-size: 24px;
-    cursor: pointer;
     margin-bottom: 10px;
     padding: 2px 6px;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px; }
-  .sets .set:hover {
-    background-color: #FFF7BD; }
+    background-color: #FFF6D9; }
+    .sets .set .set-title {
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      cursor: pointer;
+      float: left; }
+    .sets .set .set-status {
+      float: right;
+      font-size: 20px; }

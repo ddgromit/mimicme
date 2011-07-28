@@ -21,16 +21,31 @@
 }
 .sets {
     margin-top: 30px;
-    width: 400px;
+    width: 600px;
+    a {
+        color: blue;
+        text-decoration:none;
+    }
+    a:hover {
+        text-decoration:underline;
+    }
     .set {
-        background-color:#FFF6D9;
         font-size: 24px;
-        cursor: pointer;
         margin-bottom: 10px;
         padding: 2px 6px;
-        @include border-radius(4px);
+        background-color:#FFF6D9;
+
+        .set-title {
+            @include border-radius(4px);
+            cursor: pointer;
+            float: left;
+        }
+        .set-status {
+            float: right;
+            font-size: 20px;
+        }
     }
     .set:hover {
-        background-color:#FFF7BD;
+        //background-color:#FFF7BD;
     }
 }
