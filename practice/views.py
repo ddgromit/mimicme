@@ -172,10 +172,25 @@ def expert_recording(request,phrase_id):
     upload_params = "phrase_id=" + str(phrase.id) + "&type=expert"
     upload_params_encoded = urllib.quote_plus(upload_params)
 
+
+    # Expert info
+    filename = "expert" + str(phrase.id) + ".mp3"
+    exists = default_storage.exists(filename)
+    created_time = None
+    size = None
+    if exists:
+        created_time = default_storage.created_time(filename)
+        size = default_storage.size(filename)
+
     return render(request,'expert_recording.html',{
         'phrase':phrase,
         'upload_params_encoded':upload_params_encoded,
         'expert_url':expert_url(phrase_id),
+
+        'filename':filename,
+        'exists':exists,
+        'created_time':created_time,
+        'size':size,
     })
 
 @login_required

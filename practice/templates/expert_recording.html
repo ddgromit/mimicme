@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'withdash.html' %}
 {% load render_partial %}
 
 {% block css %}
@@ -17,16 +17,25 @@
 {% endblock javascript %}
 
 
-{% block body %}
-<h1>{{phrase.english}}</h1>
+{% block content %}
+<div class="column-800">
+    <h1 style="color:blue">"{{phrase.english}}"</h1>
 
-<h2>Record New</h2>
-{% render_partial recorder.html type:'record' title:'Override the expert here' upload_params:upload_params_encoded%}
-
-
-<h2>Previous Recording</h2>
-<i>If it doesn't exist, it won't play</i>
-{% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
+    <h2>Record New</h2>
+    {% render_partial recorder.html type:'record' title:'Override the expert here' upload_params:upload_params_encoded%}
 
 
+    <h2>Current Recording</h2>
+    {% if exists %}
+    {% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
+
+    <h3>Stats</h3>
+    Recording created: {{ created_time }}<BR />
+    Filename: {{filename}}<BR />
+    Size: {{size}}<BR />
+    url: <a href="{{expert_url}}">{{expert_url}}</a>
+    {% else %}
+    Doesn't exist
+    {% endif %}
+</div>
 {% endblock %}
