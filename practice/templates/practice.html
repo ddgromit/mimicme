@@ -26,9 +26,15 @@
         $(window).bind('recorderEnd', function() {
             recorded = true;
             timesRecorded++;
+            $(function() {
+                _kmq.push(['record', 'Recording Made']);
+            });
         });
         $(window).bind('recorderSubmit', function() {
             submitted = true;
+            $(function() {
+                _kmq.push(['record', 'Recording Submitted']);
+            });
         });
     });
 

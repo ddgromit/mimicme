@@ -11,6 +11,17 @@
 {{ block.super }}
 {% endblock javascript %}
 
+{% block analytics %}
+{{ block.super }}
+
+<script type="text/javascript">
+    $(function() {
+        _kmq.push(['record', 'Viewed Homepage']);
+    });
+</script>
+{% endblock %}
+
+
 {% block body %}
 <div class="homepage-dash">
     <div class="dash-contents">
