@@ -11,28 +11,50 @@
 {% block javascript %}
 {{ block.super }}
 <script type="text/javascript">
-    function recorderNeedsPermissions(val) {
-        console.log("Recorder needs permission: " + val);
+    var recorderLoaded = false;
+    var submitted = false;
+    var recorded = false;
+    var timesRecorded = 0;
+    $(function() {
+        $(window).bind('checkMuted', function(event, muted) {
+            console.log('check muted: ' + muted);
+            recorderLoaded = true;
+        });
+        $(window).bind('recorderStart', function() {
 
-        if (val) {
-            //$("object").attr('height',138);
+        });
+        $(window).bind('recorderEnd', function() {
+            recorded = true;
+            timesRecorded++;
+        });
+        $(window).bind('recorderSubmit', function() {
+            submitted = true;
+        });
+    });
+
+    function nextPhrase() {
+        if (recorded && !submitted) {
+            var proceed = confirm("Your recording has not been submitted. Proceed anyway?");
+            if (proceed) {
+                window.location = "{{next_url}}";
+            }
         } else {
-            //$("object").attr('height',50);
+            window.location = "{{next_url}}";
         }
     }
 
-window.onload = resizewin; 
- function resizewin (addmargin) { 
-  try{ 
-   if ($.browser.mozilla) { 
-    $(window).resize(addMargin).resize(); 
-   } 
-  }catch(ex){} 
+    window.onload = resizewin; 
+     function resizewin (addmargin) { 
+      try{ 
+       if ($.browser.mozilla) { 
+        $(window).resize(addMargin).resize(); 
+       } 
+      }catch(ex){} 
 
-  function addMargin() { 
-      $(".yourself .recorder ").css('margin-left', window.outerWidth % 2 ? '0' : '0.5px') 
-  } 
- } 
+      function addMargin() { 
+          $(".yourself .recorder ").css('margin-left', window.outerWidth % 2 ? '0' : '0.5px') 
+      } 
+     } 
 
 </script>
 {% endblock javascript %}
@@ -79,7 +101,7 @@ window.onload = resizewin;
                     Finish Set
                 </button>
                 {% else %}
-                <button class="next-button" onclick="window.location='{{next_url}}'">
+                <button class="next-button" onclick="nextPhrase()">
                     Next Phrase
                 </button>
                 {% endif %}
