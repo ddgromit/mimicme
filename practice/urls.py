@@ -8,4 +8,5 @@ urlpatterns = patterns('practice.views',
     (r'submit_recording/?','submit_recording'),
     (r'expert_recording/(?P<phrase_id>\d+)/?','expert_recording'),
     (r'give_response/?','give_response'),
+    (r'finished/?','finished'),
 )

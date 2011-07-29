@@ -1,0 +1,27 @@
+{% extends 'withdash.html' %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/finished.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ui-lightness/jquery-ui-1.8.7.custom.css"/>
+{% endblock css %}
+
+{% block title %}Sets{%endblock%}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+{% endblock javascript %}
+
+{% block content %}
+<div class="column-800">
+    <div class="title">
+        Set complete!
+    </div>
+    <div class="instructions">
+        You'll be emailed when your recordings have feedback from other users.
+        <BR />
+        <a href="/sets/">Back to Practice</a>
+    </div>
+</div>
+{% endblock content %}

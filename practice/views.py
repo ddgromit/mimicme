@@ -216,3 +216,7 @@ def give_response(request):
     return render(request,'give_response.html',{
         'recordingObjs':recordingObjs,
     })
+
+
+def finished(request):
+    return render(request,'finished.html', {})
