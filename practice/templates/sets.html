@@ -13,6 +13,20 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
+
+{% block analytics %}
+{{ block.super }}
+
+<script type="text/javascript">
+    {% if user.is_authenticated %}
+    $(function() {
+        _kmq.push(['identify', '{{user.email}}']);
+    });
+    {% endif %}
+</script>
+{% endblock %}
+
+
 {% block content %}
 <div class="column-800">
     <div class="title">
