@@ -4,6 +4,7 @@ PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+IS_PROD = True
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -99,6 +100,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
+    'context_processors.dev_or_prod',
 ]
 
 
