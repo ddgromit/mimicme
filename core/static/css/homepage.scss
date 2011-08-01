@@ -115,6 +115,35 @@ $blue: #045cbe;
         }
     }
 }
+
+.lower {
+    margin-top: 20px;
+    .lower-headline {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .step {
+        margin-bottom: 20px;
+        img {
+            height: 80px;
+            float:left;
+        }
+        .text-area {
+            float:left;
+            width: 600px;
+            margin-left: 20px;
+            .directive {
+                font-size: 20px;
+                color: #111;
+                font-weight: bold;
+
+            }
+            .explanation {
+            }
+        }
+    }
+}
 html {
     //background: black url(/static/images/bg-bar.jpg) no-repeat center center fixed;
 

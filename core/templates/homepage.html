@@ -53,7 +53,7 @@
 
         </div>
         <div class="register">
-            <div class="register-subtitle">Try It <span class="free">Free!</span></div>
+            <div class="register-subtitle">Start Practicing Now, <span class="free">Its Free!</span></div>
             <form method="POST">
                 {{ errors }}
                 <div class="form-line">
@@ -87,5 +87,51 @@
         <div style="clear: both;"></div>
     </div>
     <div style="clear: both;"></div>
+
+
+    <div class="lower">
+        <div class="lower-headline">
+            How It Works
+        </div>
+        <div class="step step-1">
+            <img src="{{STATIC_URL}}images/homepage-step1.png" >
+            <div class="text-area">
+                <div class="directive">
+                    Listen to experts.
+                </div>
+                <div class="explanation">
+                    Listen to native speakers say the phrases naturally yet clearly.
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="step step-2">
+            <img src="{{STATIC_URL}}images/homepage-step2.png">
+            <div class="text-area">
+                <div class="directive">
+                    Record your own voice
+                </div>
+                <div class="explanation">
+                    Record yourself practicing the words in your own browser, and keep trying
+                    as many times as you'd like.
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="step step-3">
+            <img src="{{STATIC_URL}}images/homepage-step3.png">
+            <div class="text-area">
+                <div class="directive">
+                    Get feedback from the community
+                </div>
+                <div class="explanation">
+                    Optionally submit your practice recordings and get helpful audio feedback from real
+                    native speakers and other language learners.
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
 </div>
 {% endblock body %}

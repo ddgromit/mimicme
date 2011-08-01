@@ -59,6 +59,15 @@ def now_filename_str():
 #        run("./manage.py dumpdata > %s" % filename)
 
 
+def get_uploads():
+    local("rm uploadedmedia/*")
+    local("scp root@verbalite.com:~/mimicme/uploadedmedia/* uploadedmedia/")
+    with virtualenv():
+        run("./manage.py dumpdata > ~/temp/dump.json")
+    local("scp root@verbalite.com:~/temp/dump.json ~/temp/dump.json")
+    local("./manage.py loaddata ~/temp/dump.json")
+
+
 # SCRIPTS #
 
 def remote_redeploy():
