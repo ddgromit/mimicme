@@ -12,6 +12,7 @@
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
 }
 
+$blue: #045cbe;
 
 .homepage-dash {
     width: 800px;
@@ -51,61 +52,66 @@
     color: black;
     padding-bottom: 30px;
 }
-.title {
-    margin-bottom: 8px;
-    text-align: center;
-    margin-top: 15px;
+
+
+.headline {
+    margin: 0 0 25px 10px;
     font-size: 36px;
     font-weight: bold;
-    display: none;
-}
-.subtitle {
-    margin-bottom: 45px;
-    text-align: center;
-    margin-top: 15px;
-    font-size: 30px;
+    color: $blue;
 
 }
-.bullets {
+
+.main-image {
     float: left;
-    width: 400px;
-
-    ul,li {
-        margin: none;
-        padding: none;
-    }
-    .item {
-        font-size: 20px;
-    }
+    margin-left: 10px;
 }
-.register {
+
+.right-column {
     float: right;
-    width: 350px;
+    width: 390px;
 
-
-
-    .register-subtitle {
+    .secondary-headline {
         font-size: 20px;
-        margin-bottom: 10px;
         font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
     }
-    .form-line {
-        margin-bottom: 5px;
-        label {
-            width: 120px;
-            display: inline-block;
-            font-size: 18px;
+    .bullets {
+        ul,li {
+            margin: none;
+            padding: none;
         }
-        input[type="text"],
-        input[type="password"] {
-            width: 200px;
-            font-size: 18px;
+        .item {
+            font-size: 20px;
         }
-        .submit {
-            margin-top: 10px;
-            width: 330px;
-            font-size: 24px;
-            padding: 6px 3px;
+    }
+
+    .register {
+        .register-subtitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .form-line {
+            margin-bottom: 5px;
+            label {
+                width: 120px;
+                display: inline-block;
+                font-size: 18px;
+            }
+            input[type="text"],
+            input[type="password"] {
+                width: 220px;
+                font-size: 18px;
+            }
+            .submit {
+                margin-top: 10px;
+                width: 350px;
+                font-size: 24px;
+                padding: 6px 3px;
+                color: $blue;
+            }
         }
     }
 }

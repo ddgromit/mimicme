@@ -41,49 +41,50 @@
 </div>
 
 <div id="container">
-    <div class="title">
-        Verbalite
+    <div class="headline">
+        Speak English Flawlessly
     </div>
-    <div class="subtitle">
-        Pronounce English Like a Native
-    </div>
-    <div class="bullets">
-        <ul>
-            <li class='item'>Practice by hearing experts and recording your own voice</li>
-            <li class='item'>Get feedback from real speakers</li>
-        </ul>
-    </div>
-    <div class="register">
-        <div class="register-subtitle">Try It Free!</div>
-        <form method="POST">
-            {{ errors }}
-            <div class="form-line">
-                <label>Username:</label>
-                {{form.username}}
-                <div class="errors">
-                    {{form.username.errors}}
+    <img class="main-image" src="{{STATIC_URL}}images/friends.jpg" />
+    <div class="right-column">
+        <div class="secondary-headline">
+            Practice by hearing experts and recording your own voice.
+        </div>
+        <div class="info">
+
+        </div>
+        <div class="register">
+            <div class="register-subtitle">Try It <span class="free">Free!</span></div>
+            <form method="POST">
+                {{ errors }}
+                <div class="form-line">
+                    <label>Username:</label>
+                    {{form.username}}
+                    <div class="errors">
+                        {{form.username.errors}}
+                    </div>
                 </div>
-            </div>
-            <div class="form-line">
-                <label>Email:</label>
-                {{form.email}}
-                <div class="errors">
-                    {{form.errors.email}}
+                <div class="form-line">
+                    <label>Email:</label>
+                    {{form.email}}
+                    <div class="errors">
+                        {{form.errors.email}}
+                    </div>
                 </div>
-            </div>
-            <div class="form-line">
-                <label>Password:</label>
-                {{form.password}}
-                <div class="errors">
-                    {{form.errors.password}}
+                <div class="form-line">
+                    <label>Password:</label>
+                    {{form.password}}
+                    <div class="errors">
+                        {{form.errors.password}}
+                    </div>
                 </div>
-            </div>
-            <div class="form-line">
-                <button type="submit" value="Register" class="submit" onclick="$('#register-form').submit()">
-                    Create Your Account
-                </button>
-            </div>
-        </form>
+                <div class="form-line">
+                    <button type="submit" value="Register" class="submit" onclick="$('#register-form').submit()">
+                        Create Your Account
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div style="clear: both;"></div>
     </div>
     <div style="clear: both;"></div>
 </div>

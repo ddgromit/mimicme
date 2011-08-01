@@ -34,51 +34,49 @@
   color: black;
   padding-bottom: 30px; }
 
-.title {
-  margin-bottom: 8px;
-  text-align: center;
-  margin-top: 15px;
+.headline {
+  margin: 0 0 25px 10px;
   font-size: 36px;
   font-weight: bold;
-  display: none; }
+  color: #045cbe; }
 
-.subtitle {
-  margin-bottom: 45px;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 30px; }
-
-.bullets {
+.main-image {
   float: left;
-  width: 400px; }
-  .bullets ul, .bullets li {
+  margin-left: 10px; }
+
+.right-column {
+  float: right;
+  width: 390px; }
+  .right-column .secondary-headline {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333; }
+  .right-column .bullets ul, .right-column .bullets li {
     margin: none;
     padding: none; }
-  .bullets .item {
+  .right-column .bullets .item {
     font-size: 20px; }
-
-.register {
-  float: right;
-  width: 350px; }
-  .register .register-subtitle {
+  .right-column .register .register-subtitle {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: bold; }
-  .register .form-line {
+  .right-column .register .form-line {
     margin-bottom: 5px; }
-    .register .form-line label {
+    .right-column .register .form-line label {
       width: 120px;
       display: inline-block;
       font-size: 18px; }
-    .register .form-line input[type="text"],
-    .register .form-line input[type="password"] {
-      width: 200px;
+    .right-column .register .form-line input[type="text"],
+    .right-column .register .form-line input[type="password"] {
+      width: 220px;
       font-size: 18px; }
-    .register .form-line .submit {
+    .right-column .register .form-line .submit {
       margin-top: 10px;
-      width: 330px;
+      width: 350px;
       font-size: 24px;
-      padding: 6px 3px; }
+      padding: 6px 3px;
+      color: #045cbe; }
 
 html {
   background-image: url(/static/images/whitey-pattern.png);
