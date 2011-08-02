@@ -42,7 +42,9 @@
 
 .main-image {
   float: left;
-  margin-left: 10px; }
+  margin-left: 10px;
+  width: 370px;
+  margin-top: 8px; }
 
 .right-column {
   float: right;
