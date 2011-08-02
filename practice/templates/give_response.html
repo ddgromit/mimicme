@@ -30,7 +30,7 @@
                 {% render_partial player.html mp3Url:recording_url title:'User Recording' %}
             </div>
             <div class="give-response">
-                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
+                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded customLengthMode:True%}
             </div>
             {% if responseObjs|length > 0 %}
             <div class="responses-title">
