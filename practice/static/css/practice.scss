@@ -14,7 +14,6 @@
 body {
 }
 .center-column {
-    width: 400px;
     margin-left: 20px;
 }
 
@@ -26,51 +25,102 @@ body {
     text-align: center;
     padding: 8px 15px;
     width: 700px;
+    display:none;
     .set {
         font-size: 20px;
     }
     .progress {
 
+        display:none;
+    }
+}
+.progress-area {
+    margin: 10px 0 20px 0;
+    .progress-bar {
+        background-color: #BBB;
+        color: #000;
+        font-size: 30px;
+        @include border-radius(6px);
+        margin: 0px 0 0px 0;
+        width: 750px;
+
+        .progress-bar-inner {
+            background-color: #22D71B;
+            @include border-radius(6px);
+            //overflow: hidden;
+            padding: 6px 0;
+            //background: url('/static/images/timer-bg.png');
+
+            .text {
+                color: white;
+                font-weight: bold;
+                margin-left: 8px;
+                //overflow: hidden;
+                white-space: nowrap;
+            }
+        }
     }
 }
 .prompt {
-    .instructions {
-        font-size: 12px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-    }
     .phrase{
+        text-align:center;
         font-size: 36px;
         margin-bottom: 20px;
         color: #00a;
     }
 }
-.expert {
-    .instructions {
-        font-size: 12px;
+
+.step {
+    .step-number {
+        font-size: 36px;
+        color:white;
+        background-color: #333;
+        border: 4px solid #aaa;
+        padding: 3px 5px;
+        @include border-radius(6px);
+        width: 50px;
+        text-align:center;
+        float:left;
+    }
+    .step-text {
+        font-size: 30px;
         font-weight: bold;
         color: #333;
-        margin-bottom: 10px;
+        margin: 10px 0 0 20px;
+        float: left;
     }
+    .step-contents {
+        margin-left: 80px;
+        margin-top: 20px;
+    }
+}
+
+
+
+.expert {
 }
 
 .yourself {
     margin-top: 30px;
     .instructions {
         font-size: 12px;
-        font-weight: bold;
         color: #333;
         margin-bottom: 10px;
+    }
+    .cant-see {
+        font-size:11px;
+        color: #e66;
+        margin-top: 8px;
     }
 
 }
 
 .next {
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-left: 80px;
     .next-button {
-        padding: 5px 10px;
-        font-size: 20px;
+        padding: 8px 10px;
+        font-size: 36px;
 
     }
 }
@@ -78,3 +128,4 @@ body {
 .recorder {
     border: 1px solid #eee;
 }
+

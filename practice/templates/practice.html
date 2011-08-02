@@ -77,41 +77,64 @@
                 Phrase #{{ phrase_num }} out of {{ phrases_in_set }}
             </div>
         </div>
-        <div class="everything">
-            <div class="prompt">
-                <div class="instructions">
-                    Phrase or word we're practicing:
-                </div>
-                <div class="phrase">
-                    "{{phrase.english}}"
+        <div class="progress-area">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" style="width:{{phrase_percent}}%">
+                    <div class="text">
+                        Phrase #{{ phrase_num }} out of {{ phrases_in_set }}
+                    </div>
                 </div>
             </div>
-            <div class="expert">
-                <div class="instructions">
-                    Hear the expert say it.
-                </div>
+        </div>
+        <div class="prompt">
+            <div class="phrase">
+                "{{phrase.english}}"
+            </div>
+        </div>
+        <div class="step expert">
+            <div class="step-number">
+                1
+            </div>
+            <div class="step-text">
+                Listen to the Expert
+            </div>
+            <div style="clear: both;"></div>
+            <div class="step-contents">
                 {% render_partial player.html title:'Expert Recording' mp3Url:expert_url %}
             </div>
+        </div>
 
-            <div class="yourself">
+        <div class="step yourself">
+            <div class="step-number">
+                2
+            </div>
+            <div class="step-text">
+                Record Yourself
+            </div>
+            <div style="clear: both;"></div>
+            <div class="step-contents">
                 <div class="instructions">
-                    Now try saying "{{phrase.english}}" yourself.  <BR />
-                    When you are satisfied with your recording, click "Submit" and you'll get feedback later from other language learners.
+                    Try repeating it as many times as you'd like.<BR />
+                    Then click "Submit" and you'll get feedback later from other language learners.
                 </div>
                 {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
-            </div>
+                <div class="cant-see">
+                    (If a dialog appears above, hit "Allow" then "Close")
+                </div>
 
-            <div class="next">
-                {% if last_one %}
-                <button class="next-button" onclick="window.location='/finished/'">
-                    Finish Set
-                </button>
-                {% else %}
-                <button class="next-button" onclick="nextPhrase()">
-                    Next Phrase
-                </button>
-                {% endif %}
             </div>
+        </div>
+
+        <div class="next">
+            {% if last_one %}
+            <button class="next-button" onclick="window.location='/finished/'">
+                Finish Set
+            </button>
+            {% else %}
+            <button class="next-button" onclick="nextPhrase()">
+                Next Phrase
+            </button>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,5 +1,4 @@
 .center-column {
-  width: 400px;
   margin-left: 20px; }
 
 .info {
@@ -11,39 +10,81 @@
   color: black;
   text-align: center;
   padding: 8px 15px;
-  width: 700px; }
+  width: 700px;
+  display: none; }
   .info .set {
     font-size: 20px; }
+  .info .progress {
+    display: none; }
 
-.prompt .instructions {
-  font-size: 12px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px; }
+.progress-area {
+  margin: 10px 0 20px 0; }
+  .progress-area .progress-bar {
+    background-color: #BBB;
+    color: #000;
+    font-size: 30px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 0px 0 0px 0;
+    width: 750px; }
+    .progress-area .progress-bar .progress-bar-inner {
+      background-color: #22D71B;
+      border-radius: 6px;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      padding: 6px 0; }
+      .progress-area .progress-bar .progress-bar-inner .text {
+        color: white;
+        font-weight: bold;
+        margin-left: 8px;
+        white-space: nowrap; }
+
 .prompt .phrase {
+  text-align: center;
   font-size: 36px;
   margin-bottom: 20px;
   color: #00a; }
 
-.expert .instructions {
-  font-size: 12px;
+.step .step-number {
+  font-size: 36px;
+  color: white;
+  background-color: #333;
+  border: 4px solid #aaa;
+  padding: 3px 5px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  width: 50px;
+  text-align: center;
+  float: left; }
+.step .step-text {
+  font-size: 30px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 10px; }
+  margin: 10px 0 0 20px;
+  float: left; }
+.step .step-contents {
+  margin-left: 80px;
+  margin-top: 20px; }
 
 .yourself {
   margin-top: 30px; }
   .yourself .instructions {
     font-size: 12px;
-    font-weight: bold;
     color: #333;
     margin-bottom: 10px; }
+  .yourself .cant-see {
+    font-size: 11px;
+    color: #e66;
+    margin-top: 8px; }
 
 .next {
-  margin-top: 20px; }
+  margin-top: 40px;
+  margin-left: 80px; }
   .next .next-button {
-    padding: 5px 10px;
-    font-size: 20px; }
+    padding: 8px 10px;
+    font-size: 36px; }
 
 .recorder {
   border: 1px solid #eee; }

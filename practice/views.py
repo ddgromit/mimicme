@@ -29,6 +29,9 @@ def practice(request,phrase_set_id):
     upload_params = "phrase_id=" + str(phrase.id)
     upload_params_encoded = urllib.quote_plus(upload_params)
 
+    # Precent bar
+    phrase_percent = max(float(num - 1) / len(phrases)*100,2)
+
     next_url = '?num=' + str(num + 1)
     return render(request,'practice.html',{
         'phrase_set':phrase_set,
@@ -39,6 +42,7 @@ def practice(request,phrase_set_id):
         'expert_url':lib.expert_url(phrase.id),
         'phrase_num':num,
         'phrases_in_set':len(phrases),
+        'phrase_percent':phrase_percent,
     })
 
 @login_required
