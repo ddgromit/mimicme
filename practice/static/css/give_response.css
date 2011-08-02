@@ -1,7 +1,3 @@
-.center-column {
-  margin: 0 auto;
-  width: 320px; }
-
 .title {
   font-size: 20px;
   font-weight: bold;
@@ -10,7 +6,8 @@
 
 .phrase {
   font-size: 12px;
-  color: darkblue; }
+  color: darkblue;
+  cursor: pointer; }
 
 div.feedback-noresponses {
   -moz-box-shadow: 0px 1px 2px #ff2222;
