@@ -60,7 +60,7 @@
         </div>
         {% endif %}
         <div class="feedbacks">
-            {% for recording,recording_url,responseObjs,expert_url in recordingObjs %}
+            {% for recording,recording_url,responseObjs,expert_url,upload_params_encoded in recordingObjs %}
             <div class="feedback">
                 <div class="phrase">
                     {{recording.phrase.english}}
@@ -105,8 +105,10 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-
-                <button class="try-again-button" disabled=true>Record Again (not available yet)</button>
+                <div class="record-again" style="display:none">
+                    {% render_partial recorder.html type:'record' upload_params:upload_params_encoded%}
+                </div>
+                <button class="try-again-button" onclick="$(this).prev().show();">Record Again</button>
             </div>
             {% endfor %}
         </div>

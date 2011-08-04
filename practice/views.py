@@ -87,11 +87,17 @@ def review(request):
         media_url_encoded = urllib.quote_plus(media_url)
         responses = Response.objects.filter(recording=recording).order_by('-created')
         responseObjs = [(response,lib.response_url(response.id)) for response in responses]
+
+        # Additional params we want passed through to uploading
+        upload_params = "phrase_id=" + str(recording.phrase.id)
+        upload_params_encoded = urllib.quote_plus(upload_params)
+
         recordingObjs.append((
             recording,
             media_url_encoded,
             responseObjs,
             lib.expert_url(recording.phrase.id),
+            upload_params_encoded,
         ))
 
     return render(request,'review.html',{
