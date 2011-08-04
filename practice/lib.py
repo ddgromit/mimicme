@@ -30,4 +30,11 @@ def my_callback(sender, instance, **kwargs):
         default_storage.delete(expert_mp3)
 
 
-
+def give_response_feedback(response,positive,reason = ""):
+    response_feedback = ResponseFeedback(
+        response = response,
+        positive = positive,
+        reason = reason,
+    )
+    response_feedback.save()
+    return response_feedback

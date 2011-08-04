@@ -10,6 +10,42 @@
 
 {% block javascript %}
 {{ block.super }}
+
+<script type="text/javascript">
+    function submitFeedback(response_id,positive,reason) {
+        $.post('/give_response_feedback',{
+            'response_id':response_id,
+            'positive':positive ? 1 : 0,
+            'reason':reason
+        });
+    }
+
+    $(function() {
+        $(".response .helpful-area").each(function() {
+            var helpful = this;
+            var response_id = $(this).attr('response_id');
+            $(helpful).find('.yes').click(function() {
+                $(helpful).find(".helpful").hide();
+                $(helpful).find(".thanks").show();
+                submitFeedback(response_id,true,'');
+                return false;
+            });
+            $(helpful).find('.no').click(function() {
+                $(helpful).find(".initial-prompt").hide();
+                $(helpful).find(".more-feedback").show();
+                return false;
+            });
+            $(helpful).find('.submit-feedback').click(function() {
+                $(helpful).find(".helpful").hide();
+                $(helpful).find(".thanks").show();
+                var reason = $(helpful).find(".reason").val();
+                submitFeedback(response_id,false,reason);
+                return false;
+            });
+         });
+
+    });
+</script>
 {% endblock javascript %}
 
 {% block content %}
@@ -46,6 +82,24 @@
                     <div class="response">
                         <div class="response response-new">
                             {% render_partial player.html mp3Url:response_url title:'A response' %}
+                        </div>
+                        <div class="helpful-area" response_id="{{response.id}}">
+                            <div class="helpful">
+                                <div class="initial-prompt">
+                                    Was this response helpful? 
+                                    <a href="yes" class="yes">yes</a> 
+                                    <a href="no" class="no">no</a>
+                                </div>
+                                <div class="more-feedback" style="display:none;">
+                                    <div class="text">How could it be improved?</div>
+                                    <textarea class="additional-feedback"></textarea>
+                                    <BR />
+                                    <button class="submit-feedback">Send Anonymous Feedback</button>
+                                </div>
+                            </div>
+                            <div class="thanks" style="display:none;">
+                                Thanks!
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

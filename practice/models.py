@@ -29,3 +29,9 @@ class Response(models.Model):
 
     def __str__(self):
         return self.giver.username + " to " + self.recording.user.username + " for \"" + str(self.recording.phrase) + "\""
+
+class ResponseFeedback(models.Model):
+    response = models.ForeignKey('Response')
+    positive = models.BooleanField()
+    reason = models.CharField(max_length=300,default="")
+

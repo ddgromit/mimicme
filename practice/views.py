@@ -224,3 +224,19 @@ def give_response(request):
 
 def finished(request):
     return render(request,'finished.html', {})
+
+
+def response_feedback_handler(request):
+    response_id = int(request.POST.get('response_id'))
+    positive = bool(int(request.POST.get('positive')))
+    reason = request.POST.get('reason','')
+
+    response = Response.objects.get(id=response_id)
+
+    response_feedback = lib.give_response_feedback(
+        response = response,
+        positive = positive,
+        reason = reason,
+    )
+
+    return http.HttpResponse("ok " + str(response_feedback.id))

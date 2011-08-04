@@ -77,6 +77,25 @@
                 font-weight: bold;
                 @include border-radius(4px);
             }
+            .helpful-area {
+                font-size: 12px;
+                color:#333;
+                margin-left: 10px;
+
+                a {
+
+                }
+                .more-feedback {
+                    .text {
+                        
+                    }
+                    textarea {
+                        width: 300px;
+                        height: 28px;
+                        
+                    }
+                }
+            }
         }
         .response-new {
             //border-left: 3px solid #393;

@@ -40,6 +40,13 @@
       border-radius: 4px;
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px; }
+    .feedback .responses .response .helpful-area {
+      font-size: 12px;
+      color: #333;
+      margin-left: 10px; }
+      .feedback .responses .response .helpful-area .more-feedback textarea {
+        width: 300px;
+        height: 28px; }
   .feedback .try-again-button {
     margin: 0 auto;
     margin-top: 16px;
