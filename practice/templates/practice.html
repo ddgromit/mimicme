@@ -16,6 +16,9 @@
     var recorded = false;
     var timesRecorded = 0;
     $(function() {
+        mpmetrics.track("Practice Page");
+        mpmetrics.track("Practice Question #{{phrase_num}}");
+
         $(window).bind('checkMuted', function(event, muted) {
             console.log('check muted: ' + muted);
             recorderLoaded = true;
@@ -26,12 +29,14 @@
         $(window).bind('recorderEnd', function() {
             recorded = true;
             timesRecorded++;
+            mpmetrics.track("Recording Made");
             $(function() {
                 _kmq.push(['record', 'Recording Made']);
             });
         });
         $(window).bind('recorderSubmit', function() {
             submitted = true;
+            mpmetrics.track("Recording Submitted");
             $(function() {
                 _kmq.push(['record', 'Recording Submitted']);
             });
@@ -40,8 +45,10 @@
 
     function nextPhrase() {
         if (recorded && !submitted) {
+            mpmetrics.track("Tried without recording");
             var proceed = confirm("Your recording has not been submitted. Proceed anyway?");
             if (proceed) {
+                mpmetrics.track("Proceeded without recording");
                 window.location = "{{next_url}}";
             }
         } else {
@@ -127,7 +134,7 @@
 
         <div class="next">
             {% if last_one %}
-            <button class="next-button" onclick="window.location='/finished/'">
+            <button class="next-button" onclick="window.location='/finished/?set_id={{phrase_set.id}}'">
                 Finish Set
             </button>
             {% else %}

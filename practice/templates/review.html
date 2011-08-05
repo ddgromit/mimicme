@@ -13,6 +13,10 @@
 
 <script type="text/javascript">
     function submitFeedback(response_id,positive,reason) {
+        mpmetrics.track("Gave Feedback",{
+            'positive':positive ? 'yes':'no',
+            'response_id':response_id
+        });
         $.post('/give_response_feedback',{
             'response_id':response_id,
             'positive':positive ? 1 : 0,
@@ -21,6 +25,7 @@
     }
 
     $(function() {
+        mpmetrics.track("Review Page");
         $(".response .helpful-area").each(function() {
             var helpful = this;
             var response_id = $(this).attr('response_id');

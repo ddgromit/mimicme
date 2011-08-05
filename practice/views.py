@@ -229,7 +229,9 @@ def give_response(request):
 
 
 def finished(request):
-    return render(request,'finished.html', {})
+    return render(request,'finished.html', {
+        'set_id':request.GET.get('set_id','unknown')
+    })
 
 
 def response_feedback_handler(request):

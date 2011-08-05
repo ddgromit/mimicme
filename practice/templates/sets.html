@@ -21,6 +21,8 @@
     {% if user.is_authenticated %}
     $(function() {
         _kmq.push(['identify', '{{user.email}}']);
+        mpmetrics.identify('{{user.email}}');
+        mpmetrics.track("Sets");
     });
     {% endif %}
 </script>
