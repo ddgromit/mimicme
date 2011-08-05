@@ -120,17 +120,19 @@
             </div>
             <div style="clear: both;"></div>
             <div class="step-contents">
-                <div class="instructions">
+                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
+                <a class="help" onclick="$(this).next().toggle(); return false;">Help</a>
+                <div class="instructions" style="display:none">
                     Try repeating it as many times as you'd like.<BR />
                     Then click "Submit" and you'll get feedback later from other language learners.
-                </div>
-                {% render_partial recorder.html type:'record' title:'test' upload_params:upload_params_encoded%}
-                <div class="cant-see">
-                    (If a dialog appears above, hit "Allow" then "Close")
+                    <div class="cant-see">
+                        (If a dialog appears above, hit "Allow" then "Close")
+                    </div>
                 </div>
 
             </div>
         </div>
+        <div style="clear:both;"></div>
 
         <div class="next">
             {% if last_one %}
@@ -143,6 +145,7 @@
             </button>
             {% endif %}
         </div>
+        <div style="clear:both;"></div>
     </div>
 </div>
 {% endblock %}
