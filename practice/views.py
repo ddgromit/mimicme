@@ -248,3 +248,7 @@ def response_feedback_handler(request):
     )
 
     return http.HttpResponse("ok " + str(response_feedback.id))
+
+
+def practice_convo_handler(request):
+    return render(request,'convo.html', {})

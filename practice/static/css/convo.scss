@@ -1,0 +1,74 @@
+.convo-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.progress {
+    margin: 0 auto 20px auto;
+    width: 300px;
+    text-align: center;
+    .item {
+        text-align: center;
+        border: 1px solid blue;
+        padding: 3px 5px;
+        font-size: 16px;
+        font-family: Arial;
+        width: 20px;
+        margin-left: 10px;
+        display:inline-block;
+    }
+    .item-current {
+        color: white;
+        background-color: blue;
+    }
+    .item-noncurrent {
+        cursor:pointer;
+
+    }
+    .item-noncurrent:hover {
+        background-color: #eee;
+    }
+
+}
+
+.dialog-interviewer {
+    .dialog-title {
+        background-color: orange;
+    }
+}
+.dialog-speaker {
+    .dialog-title {
+        background-color: #1744A8;
+    }
+}
+.dialog {
+    margin-top: 20px;
+    .dialog-title {
+        color: white;
+        border-width: 1px 1px 0 1px;
+        border-color: #eee;
+        border-style: solid;
+        padding: 3px 5px;
+        font-weight: bold;
+    }
+    .dialog-content {
+        border-width: 0 1px 1px 1px;
+        border-color: #eee;
+        border-style: solid;
+        padding: 3px 5px;
+
+        font-size: 12px;
+        .show-script {
+        }
+    }
+
+}
+
+.next-phrase-area {
+    text-align:right;
+    button.next-phrase {
+        margin-top: 10px;
+        padding: 5px 3px;
+        font-size: 30px;
+    }
+}
