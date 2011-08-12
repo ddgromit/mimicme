@@ -8,6 +8,10 @@ from django.contrib.auth import authenticate, login, logout
 def testtheme_handler(request):
     return render(request,'themeddash.html',{})
 
+def themed_homepage_handler(request):
+    return render(request,'themed_homepage.html',{})
+
+
 def create_user(email, password, username):
     existing = User.objects.filter(email=email).count()
     if existing > 0:

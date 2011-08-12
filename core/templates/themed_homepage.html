@@ -1,0 +1,129 @@
+{% extends 'themeddash.html' %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}javascripts/fancybox/jquery.fancybox-1.3.1.css" />
+{% endblock %}
+
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{STATIC_URL}}javascripts/jquery.tools.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}javascripts/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+{% endblock javascript %}
+
+
+{% block theme_content %}
+
+	
+			<div class="header header_home page">
+				
+				<div class="price_tag"></div>
+				
+				
+				<!-- Start App Screenshot -->
+				<img src="{{STATIC_URL}}images/screenshot.jpg" alt="" class="main_screenshot" />
+				<!-- End App Screenshot -->
+		
+				<!-- Start App Info -->
+				<div class="info">
+					<h1>Your App, Freshly Served.</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque tempus est, a interdum lacus dignissim quis. Donec fermentum vehicula sapien ac congue. Morbi risus nunc, semper non cursus ac, scelerisque consequat eros. Aliquam urna magna, facilisis at pharetra nec, commodo a lacus. Fusce malesuada mauris eget neque posuere porta. Mauris bibendum, lectus ac posuere pretium.</p>
+					
+					<a href="signup.html" class="button icon"><img src="{{STATIC_URL}}images/go_icon.png" alt="" /><span>Signup Now!</span></a>
+					<span class="trial">14-day free trial. No credit card required.</span>
+				</div>
+				<!-- End App Info -->
+				<div class="clear"></div>
+				
+			</div>
+			
+			<div id="home" class="padding">
+				
+				<div id="screenshots">
+				
+					<div class="section_title">
+						<h3>Screenshots</h3>
+					</div>
+				
+					<a href="javascript:;" class="controls prev">Previous</a>
+				
+					<div class="scrollable">
+						<div class="items">
+						<!-- Start Screenshot Group 1 -->
+						<ul>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_1.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_1_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_2.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_2_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_3.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_3_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_4.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_4_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_5.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_5_thumb.jpg" alt="" /></a></li>
+						</ul>
+						<!-- End Screenshot Group 1 -->	
+						<!-- Start Screenshot Group 2 -->
+						<ul>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_1.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_1_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_2.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_2_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_3.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_3_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_4.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_4_thumb.jpg" alt="" /></a></li>
+							<li><a href="{{STATIC_URL}}images/screenshots/screen_5.jpg" class="screenshot" rel="group"><img src="{{STATIC_URL}}images/screenshots/screen_5_thumb.jpg" alt="" /></a></li>
+						</ul>
+						<!-- End Screenshot Group 2 -->
+						</div>
+					</div>
+				
+					<a href="javascript:;" class="controls next">Next</a>
+					
+					<div class="clear"></div>
+				</div>
+				
+				<div id="features">
+
+					<div class="section_title">
+						<h3>Features &amp; Specs</h3>
+					</div>
+
+					<p>
+						<b>Track tasks, time and more</b>
+						<img src="{{STATIC_URL}}images/icons/track.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+					
+					<p>
+						<b>Always stay on schedule</b>
+						<img src="{{STATIC_URL}}images/icons/schedule.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+					
+					<p class="last">
+						<b>Keep yourself organized</b>
+						<img src="{{STATIC_URL}}images/icons/organize.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+					
+					<div class="clear spacer"></div>
+					
+					<p>
+						<b>Track tasks, time and more</b>
+						<img src="{{STATIC_URL}}images/icons/time.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+					
+					<p>
+						<b>Always stay on schedule</b>
+						<img src="{{STATIC_URL}}images/icons/dude.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+					
+					<p class="last">
+						<b>Keep yourself organized</b>
+						<img src="{{STATIC_URL}}images/icons/task.gif" alt="" />
+						Lorem ipsum dolor sit amet sit nsectetur adipiscing elit. Nunc et tempus est, a interdum lacus dignissim quis. Nunc pellentesque tempus est, a interdum lacus dignissim quis.
+					</p>
+
+					<div class="clear"></div>
+				</div>
+				
+			</div>
+
+
+{% endblock %}
