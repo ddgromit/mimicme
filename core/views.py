@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from django import http
 from django.contrib.auth import authenticate, login, logout
 
+
+def testtheme_handler(request):
+    return render(request,'themeddash.html',{})
+
 def create_user(email, password, username):
     existing = User.objects.filter(email=email).count()
     if existing > 0:
