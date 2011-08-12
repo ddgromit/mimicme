@@ -81,10 +81,14 @@ div#header {
 	div#header a.logo{ 
 		float: left; 
 		margin-top: 18px; 
-		background: url('../images/logo.jpg') no-repeat top;
-		width: 264px;
-		height: 80px;
-		text-indent: -999999px;
+		/*background: url('../images/logo.png') no-repeat top;*/
+		/*text-indent: -999999px;*/
+	}
+	div#header a.logo img {
+		margin-top: 10px;
+		height: 60px;
+		/* height: 80px; */
+		
 	}
 	div#header ul {
 		list-style: none;
@@ -158,6 +162,7 @@ div#page {
 		div#page .header_home img.main_screenshot{ 
 			float: left;
 			padding: 20px 0px 0px 35px;
+			width: 380px;
 		}
 		div#page .header_home .info {
 			width: 450px;
