@@ -64,10 +64,20 @@
 
 }
 
+.submit-review {
+    text-align:right;
+    margin-top: 10px;
+    input {
+        font-size: 20px;
+    }
+    label {
+        font-size: 12px;
+    }
+}
 .next-phrase-area {
     text-align:right;
+    margin-top: 10px;
     button.next-phrase {
-        margin-top: 10px;
         padding: 5px 3px;
         font-size: 30px;
     }

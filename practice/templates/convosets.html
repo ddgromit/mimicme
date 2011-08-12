@@ -1,0 +1,94 @@
+{% extends 'withdash.html' %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/convosets.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/ui-lightness/jquery-ui-1.8.7.custom.css"/>
+{% endblock css %}
+
+{% block title %}Sets{%endblock%}
+
+{% block javascript %}
+{{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+{% endblock javascript %}
+
+
+{% block analytics %}
+{{ block.super }}
+
+<script type="text/javascript">
+    {% if user.is_authenticated %}
+    $(function() {
+        _kmq.push(['identify', '{{user.email}}']);
+        mpmetrics.identify('{{user.email}}');
+        mpmetrics.track("Convo Sets");
+    });
+    {% endif %}
+</script>
+{% endblock %}
+
+
+{% block content %}
+<div class="column-800">
+    <div class="situations">
+        <div class="situations-title">
+            Practice a Conversation
+        </div>
+        <div class="situation">
+            <img class="pic" src="{{STATIC_URL}}images/conversation-images/job-interview.jpg" />
+            <div class="right-area">
+                <div class="name">
+                    <a href="/dialogs/1">Job Interview</a>
+                    <button>Start</button>
+                </div>
+                <div class="description">
+                    Programming interview between you and a senior developer.
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+    <div class="taken-situations">
+        <div class="taken-title">
+            Recent Sessions
+        </div>
+        <div class="situation">
+            <div class="name">Job Interview</div>
+            <div class="status waiting-for-review">Waiting for Review</div>
+            <div class="ago">Taken Yesterday</div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+
+
+{% if is_prod %}
+<!-- Google Code for Sign up Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1006395067;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "DDaECLXingMQu73x3wM";
+var google_conversion_value = 0;
+if (1.00) {
+google_conversion_value = 1.00;
+}
+/* ]]> */
+</script>
+<script type="text/javascript" 
+src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" 
+src="http://www.googleadservices.com/pagead/conversion/1006395067/?value=1.00&amp;label=DDaECLXingMQu73x3wM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+{% endif %}
+
+{% endblock content %}

@@ -70,6 +70,31 @@ def sets(request):
     })
 
 @login_required
+def convosets_handler(request):
+    #phrase_sets = PhraseSet.objects.all()
+
+    #phrase_set_objs = []
+    #for phrase_set in phrase_sets:
+    #    recordings = Recording.objects.filter(
+    #        user = request.user,
+    #        phrase__phraseset = phrase_set)
+    #    responses = Response.objects.filter(recording__in = recordings)
+
+    #    status = 'untaken'
+    #    if len(recordings) > 0:
+    #        status = 'taken'
+    #    if len(responses) > 0:
+    #        status = 'responses'
+
+    #    phrase_set_objs.append((phrase_set, recordings, responses,status))
+
+    return render(request,'convosets.html',{
+        #'phrase_sets':phrase_sets,
+        #'phrase_set_objs':phrase_set_objs,
+    })
+
+
+@login_required
 def review(request):
     recordings = Recording.objects.filter(user = request.user)
 
