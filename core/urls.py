@@ -1,10 +1,10 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('core.views',
-    ('^/?$','homepage'),
+    ('^oldhomepage/?$','homepage'),
     ('^login/?$','login_handler'),
     ('^logout/?$','logout_handler'),
     ('^testtheme/$','testtheme_handler'),
-    ('^themed_homepage/?$','themed_homepage_handler'),
+    ('^/?$','themed_homepage_handler'),
     ('^register/?$','register_handler'),
 )
