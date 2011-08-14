@@ -1,0 +1,23 @@
+{% extends 'themeddash.html' %}
+{% load render_partial %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/convo.css"/>
+{% endblock css %}
+
+
+{% block title %}Practice | verbalite{%endblock%}
+
+{% block javascript %}
+{{ block.super }}
+{% endblock %}
+
+{% block header_title %}Finished {{conversation.title}}!{% endblock%}
+
+{% block content %}
+    <div class="back">
+        <a href="/conversations/" class="button" id="send"><span>Back to Conversations</span></a>
+    </div>
+{% endblock content %}
+

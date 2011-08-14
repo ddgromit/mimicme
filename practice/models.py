@@ -55,12 +55,12 @@ class Line(models.Model):
     speaker_text = models.CharField(max_length = 1000)
 
     def __str__(self):
-        return "%s #%s" % (self.conversation.title,order)
+        return "%s #%s" % (self.conversation.title,self.order)
 
 class Attempt(models.Model):
     conversation = models.ForeignKey('conversation')
     started = models.DateTimeField(auto_now_add = True)
-    is_finished = models.BooleanField()
+    is_finished = models.BooleanField(default=False)
 
 class LineRecording(models.Model):
     attempt = models.ForeignKey('attempt')

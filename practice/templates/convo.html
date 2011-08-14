@@ -13,7 +13,7 @@
 {{ block.super }}
 {% endblock %}
 
-{% block header_title %}Job Interview{% endblock%}
+{% block header_title %}{{conversation.title}}{% endblock%}
 
 {% block content %}
     <div class="progress">
@@ -35,7 +35,7 @@
                 Show Script
             </a>
             <div class="script" style="display:none;">
-                What are your favorite programming languages?
+                {{line.interviewer_text}}
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                 Show Script
             </a>
             <div class="script" style="display:none;">
-                My favorite programming languages are C# and C++
+                {{ line.speaker_text }}
             </div>
             <div class="record">
                 <span class="play-icon"></span>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="next-phrase-area">
-        <button class="next-phrase">
+        <button class="next-phrase" onclick="window.location = '{{next_line_url}}'">
             Next Line
         </button>
     </div>

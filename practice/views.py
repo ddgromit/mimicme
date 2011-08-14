@@ -253,7 +253,7 @@ def response_feedback_handler(request):
 
 
 @login_required
-def convosets_handler(request):
+def conversations_handler(request):
     conversations = Conversation.objects.all()
     attempts = Attempt.objects.all()
 
@@ -262,14 +262,46 @@ def convosets_handler(request):
         'attempts':attempts,
     })
 
+@login_required
+def start_conversation_handler(request, conversation_id):
+    conversation = Conversation.objects.get(id=conversation_id)
 
-# Practice page
-# conversation_id - comes in URL
-# attempt_id - comes in QS
-# line_number
-def practice_convo_handler(request,conversation_id):
-    
-    return render(request,'convo.html', {})
+    # Create an attempt to track progress
+    attempt = Attempt(conversation = conversation)
+    attempt.save()
+
+    # Build the starting url
+    next_url = "/practicing/%s/1/" % attempt.id
+
+    # Go there
+    return http.HttpResponseRedirect(next_url)
+
+@login_required
+def practicing_handler(request,attempt_id,order):
+    attempt = Attempt.objects.get(id=attempt_id)
+
+    try:
+        line = Line.objects.get(
+            conversation = attempt.conversation,
+            order = order,
+        )
+    except Line.DoesNotExist:
+        # Finished
+        attempt.is_finished = True
+        attempt.save()
+        return render(request,'convo_finished.html',{
+            'conversation':attempt.conversation,
+            'attempt':attempt,
+        })
+
+    next_line_url = "/practicing/%s/%s/" % (attempt.id, int(order) + 1)
+
+    return render(request,'convo.html', {
+        'conversation':attempt.conversation,
+        'attempt':attempt,
+        'line':line,
+        'next_line_url':next_line_url,
+    })
 
 
 
