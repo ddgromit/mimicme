@@ -36,19 +36,22 @@
         <div class="situations-title">
             Practice a Conversation
         </div>
+
+        {% for conversation in conversations %}
         <div class="situation">
-            <img class="pic" src="{{STATIC_URL}}images/conversation-images/job-interview.jpg" />
+            <img class="pic" src="{{MEDIA_URL}}{{conversation.thumbnail}}" />
             <div class="right-area">
                 <div class="name">
-                    <a href="/dialogs/1">Job Interview</a>
+                    <a href="/conversation/{{conversation.id}}/">{{ conversation.title }}</a>
                     <button>Start</button>
                 </div>
                 <div class="description">
-                    Programming interview between you and a senior developer.
+                    {{ conversation.description }}
                 </div>
             </div>
             <div style="clear:both;"></div>
         </div>
+        {% endfor %}
     </div>
 
     <div class="taken-situations">

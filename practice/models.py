@@ -35,3 +35,34 @@ class ResponseFeedback(models.Model):
     positive = models.BooleanField()
     reason = models.CharField(max_length=300,default="")
 
+
+
+
+
+class Conversation(models.Model):
+    title = models.CharField(max_length = 300)
+    description = models.CharField(max_length=1000)
+    thumbnail = models.ImageField(upload_to='conversation_thumbnails')
+
+    def __str__(self):
+        return self.title
+
+class Line(models.Model):
+    conversation = models.ForeignKey('conversation')
+    order = models.IntegerField()
+
+    interviewer_text = models.CharField(max_length = 1000)
+    speaker_text = models.CharField(max_length = 1000)
+
+    def __str__(self):
+        return "%s #%s" % (self.conversation.title,order)
+
+class Attempt(models.Model):
+    conversation = models.ForeignKey('conversation')
+    started = models.DateTimeField(auto_now_add = True)
+    is_finished = models.BooleanField()
+
+class LineRecording(models.Model):
+    attempt = models.ForeignKey('attempt')
+    line = models.ForeignKey('line')
+
