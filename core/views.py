@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django import http
 from django.contrib.auth import authenticate, login, logout
 from django.forms.util import ErrorList
+from settings import LOGIN_REDIRECT_URL
 
 def testtheme_handler(request):
     return render(request,'themeddash.html',{})
@@ -42,7 +43,7 @@ class NewUserForm(forms.Form):
 def register_handler(request):
     # If already logged in, goto sets
     if request.user.is_authenticated():
-        return http.HttpResponseRedirect('/sets/')
+        return http.HttpResponseRedirect(LOGIN_REDIRECT_URL)
 
     errors = ""
 
@@ -63,7 +64,7 @@ def register_handler(request):
                     username = form.cleaned_data['username'],
                     password = form.cleaned_data['password'])
                 login(request,user)
-                return http.HttpResponseRedirect('/sets/')
+                return http.HttpResponseRedirect(LOGIN_REDIRECT_URL)
 
 
     # Display form or errors
@@ -76,7 +77,7 @@ def register_handler(request):
 def homepage(request):
     # If already logged in, goto sets
     if request.user.is_authenticated():
-        return http.HttpResponseRedirect('/sets/')
+        return http.HttpResponseRedirect(LOGIN_REDIRECT_URL)
 
     errors = ""
 
@@ -97,7 +98,7 @@ def homepage(request):
                     username = form.cleaned_data['username'],
                     password = form.cleaned_data['password'])
                 login(request,user)
-                return http.HttpResponseRedirect('/sets/')
+                return http.HttpResponseRedirect(LOGIN_REDIRECT_URL)
 
 
     # Display form or errors
@@ -125,7 +126,7 @@ def login_handler(request):
                 if user.is_active:
                     login(request, user)
                     # success
-                    return http.HttpResponseRedirect('/sets/')
+                    return http.HttpResponseRedirect(LOGIN_REDIRECT_URL)
                 else:
                     # disabled account
                     raise Exception('invalid account')

@@ -11,5 +11,5 @@ urlpatterns = patterns('practice.views',
     (r'^give_response/?','give_response'),
     (r'^finished/?','finished'),
     (r'^convo/?$','practice_convo_handler'),
-    (r'^convosets/?$','convosets_handler'),
+    (r'^conversations/?$','convosets_handler'),
 )
