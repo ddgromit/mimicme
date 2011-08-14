@@ -1,4 +1,4 @@
-{% extends 'withdash.html' %}
+{% extends 'themeddash.html' %}
 
 {% block css %}
 {{ block.super }}
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
+{% block header_title %}Conversations{% endblock%}
 
 {% block analytics %}
 {{ block.super }}

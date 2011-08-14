@@ -1,4 +1,4 @@
-{% extends 'withdash.html' %}
+{% extends 'themeddash.html' %}
 {% load render_partial %}
 
 {% block css %}
@@ -13,11 +13,9 @@
 {{ block.super }}
 {% endblock %}
 
+{% block header_title %}Job Interview{% endblock%}
+
 {% block content %}
-<div class="column-800">
-    <div class="convo-title">
-        Job Interview
-    </div>
     <div class="progress">
         <div class="item item-current">1</div>
         <div class="item item-noncurrent">2</div>
@@ -68,9 +66,8 @@
         <button class="next-phrase">
             Next Line
         </button>
-    <div>
+    </div>
     <div class="submit-review">
         <input type="checkbox" id="submit-for-review" checked/> <label for="submit-for-review"> Submit this recording for review by an expert</label>
     </div>
-</div>
 {% endblock content %}
