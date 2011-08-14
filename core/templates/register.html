@@ -1,0 +1,55 @@
+{% extends 'themeddash.html' %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/register.css" />
+{% endblock %}
+
+
+{% block javascript %}
+{{ block.super }}
+{% endblock javascript %}
+
+{% block header_title %}Create Account{% endblock %}
+
+{% block content %}
+	<form action="" method="post" id="register-form">
+		
+		<div class="form-line">
+			<label>Username</label>
+			<span class="field-error">
+				{% for error in form.username.errors %}
+				{{ error }}
+				{% endfor %}
+			</span>
+			{{ form.username }}
+		</div>
+		
+		<div class="form-line">
+			<label>Email</label>
+			<span class="field-error">
+				{% for error in form.email.errors %}
+				{{ error }}
+				{% endfor %}
+			</span>
+			{{ form.email }}
+		</div>
+
+		<div class="form-line">
+			<label>Password</label>
+			<span class="field-error">
+				{% for error in form.password.errors %}
+				{{ error }}
+				{% endfor %}
+			</span>
+			{{ form.password }}
+		</div>
+		
+		<div class="send_form">
+			<a href="/" onclick="$('#register-form').submit(); return false;" class="button" id="send"><span>Register</span></a>
+		</div>
+		<div class="clear"></div>
+		
+	</form>
+{% endblock %}
+

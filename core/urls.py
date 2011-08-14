@@ -6,4 +6,5 @@ urlpatterns = patterns('core.views',
     ('^logout/?$','logout_handler'),
     ('^testtheme/$','testtheme_handler'),
     ('^themed_homepage/?$','themed_homepage_handler'),
+    ('^register/?$','register_handler'),
 )

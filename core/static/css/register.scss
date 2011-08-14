@@ -1,0 +1,22 @@
+ul.errorlist {
+    display:inline;
+    list-style-type: none;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    li {
+        display:inline;
+    }
+    
+}
+.field-error {
+    display:block;
+    color: red;
+    margin-bottom:10px;
+}
+
+.form-line {
+    margin-bottom: 20px;
+}

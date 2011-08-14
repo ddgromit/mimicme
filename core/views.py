@@ -28,11 +28,50 @@ def create_user(email, password, username):
     )
     return user
 
-
 class NewUserForm(forms.Form):
-    email = forms.EmailField()
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(
+        widget=forms.TextInput(attrs={'class':'text_field'})
+    )
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class':'text_field'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class':'text_field'})
+    )
+
+def register_handler(request):
+    # If already logged in, goto sets
+    if request.user.is_authenticated():
+        return http.HttpResponseRedirect('/sets/')
+
+    errors = ""
+
+    form = NewUserForm()
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = create_user(
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['password'],
+                username = form.cleaned_data['username'])
+
+            if not user:
+                errors = "Email or password already existed"
+            else:
+                # Login and goto sets page
+                user = authenticate(
+                    username = form.cleaned_data['username'],
+                    password = form.cleaned_data['password'])
+                login(request,user)
+                return http.HttpResponseRedirect('/sets/')
+
+
+    # Display form or errors
+    return render(request,'register.html',{
+        'form':form,
+        'errors':errors,
+    })
+
 
 def homepage(request):
     # If already logged in, goto sets
