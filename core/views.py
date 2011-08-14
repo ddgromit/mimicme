@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django import http
 from django.contrib.auth import authenticate, login, logout
-
+from django.forms.util import ErrorList
 
 def testtheme_handler(request):
     return render(request,'themeddash.html',{})
@@ -106,22 +106,39 @@ def homepage(request):
         'errors':errors,
     })
 
-def login_handler(request):
-  if request.method == 'POST':
-    user = authenticate(username=request.POST['username'], password=request.POST['password'])
-    if user is not None:
-      if user.is_active:
-        login(request, user)
-        # success
-        return http.HttpResponseRedirect('/sets/')
-      else:
-        # disabled account
-        raise Exception('invalid account')
-    else:
-      # invalid login
-      raise Exception('invalid login')
 
-  return render(request,'login.html',{})
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class':'text_field'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class':'text_field'})
+    )
+
+def login_handler(request):
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    # success
+                    return http.HttpResponseRedirect('/sets/')
+                else:
+                    # disabled account
+                    raise Exception('invalid account')
+            else:
+                # invalid login
+                errors = form._errors.setdefault('username',ErrorList())
+                errors.append(u"Incorrect Login")
+
+
+    return render(request,'login.html', {
+        'form':form,
+    })
+
 
 def logout_handler(request):
     logout(request)

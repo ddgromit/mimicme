@@ -1,33 +1,42 @@
-{% extends 'withdash.html' %}
+{% extends 'themeddash.html' %}
 
 {% block css %}
 {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/login.css"/>
 {% endblock css %}
 
-{% block title %}Mimic Me{%endblock%}
-
 {% block javascript %}
 {{ block.super }}
 {% endblock javascript %}
 
+{% block header_title %}Login{% endblock %}
+
 {% block content %}
 
-<div class="column-800">
     <div class="container">
-        <div class="header">Login</div>
-        <form action="/login/" method="post">
+        <form action="" method="post" id="login-form">
             <div class="form-line">
                 <label for="username">Username</label>
-                <input type="text" name="username" value="" id="username" />
+                <span class="field-error">
+                    {% for error in form.username.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </span>
+                {{ form.username }}
             </div>
             <div class="form-line">
                 <label for="password">Password</label>
-                <input type="password" name="password" value="" id="password" />
+                <span class="field-error">
+                    {% for error in form.password.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </span>
+                {{ form.password }}
             </div>
-            <button class="submit" type="submit" value="Login →" onclick="$('form').submit()">Login</button>
+            <div class="send_form">
+                <a href="/" onclick="$('#login-form').submit(); return false;" class="button" id="send"><span>Login</span></a>
+            </div>
         </form>
     </div>
-</div>
 
 {% endblock content %}
