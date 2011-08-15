@@ -54,6 +54,15 @@ class Line(models.Model):
     interviewer_text = models.CharField(max_length = 1000)
     speaker_text = models.CharField(max_length = 1000)
 
+    interviewer_recording = models.FileField(
+        upload_to='line_interviewer_recordings',
+        blank=True,
+    )
+    speaker_recording = models.FileField(
+        upload_to='line_speaker_recording',
+        blank=True,
+    )
+
     def __str__(self):
         return "%s #%s" % (self.conversation.title,self.order)
 

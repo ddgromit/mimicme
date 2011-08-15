@@ -136,6 +136,16 @@ def submit_recording(request):
 
                 filename = "response" + str(response.id) + ".mp3"
                 default_storage.save(filename,request.FILES['fileupload'])
+        elif request.GET.get('type',None) == 'line_interviewer':
+            line_id = request.GET.get('line_id',None)
+            line = Line.objects.get(id=int(line_id))
+            line.interviewer_recording = request.FILES['fileupload']
+            line.save()
+        elif request.GET.get('type',None) == 'line_speaker':
+            line_id = request.GET.get('line_id',None)
+            line = Line.objects.get(id=int(line_id))
+            line.speaker_recording = request.FILES['fileupload']
+            line.save()
         else:
             # Validate phrase exists
             phrase_id = request.GET.get('phrase_id')

@@ -1,30 +1,25 @@
 from practice.models import *
 from django.contrib import admin
-
+import urllib
+import settings
 
 class LineAdmin(admin.ModelAdmin):
-
-    # A template for a very customized change view:
     #change_form_template = 'admin/myapp/extras/openstreetmap_change_form.html'
-
-    def get_osm_info(self):
-        # ...
-        pass
 
     def change_view(self, request, object_id, extra_context=None):
         line = Line.objects.get(id=object_id)
 
-        interviewer_recording_url = ''
-        interviewer_upload_params = ''
-        speaker_recording_url = ''
-        speaker_upload_params = ''
+        interviewer_recording_url = settings.MEDIA_URL + str(line.interviewer_recording) if line.interviewer_recording else ""
+        interviewer_upload_params = "type=line_interviewer&line_id=%s" % line.id
+        speaker_recording_url = settings.MEDIA_URL + str(line.speaker_recording) if line.speaker_recording else ""
+        speaker_upload_params = "type=line_speaker&line_id=%s" % line.id
 
         my_context = {
             'line':line,
             'interviewer_recording_url':interviewer_recording_url,
-            'interviewer_upload_params':interviewer_upload_params,
+            'interviewer_upload_params':urllib.quote_plus(interviewer_upload_params),
             'speaker_recording_url':speaker_recording_url,
-            'speaker_upload_params':speaker_upload_params,
+            'speaker_upload_params':urllib.quote_plus(speaker_upload_params),
         }
         return super(LineAdmin, self).change_view(request, object_id,
             extra_context=my_context)
