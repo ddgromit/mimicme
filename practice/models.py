@@ -75,3 +75,7 @@ class LineRecording(models.Model):
     attempt = models.ForeignKey('attempt')
     line = models.ForeignKey('line')
 
+    response_recording = models.FileField(
+        upload_to='response_recordings',
+    )
+

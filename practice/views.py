@@ -146,6 +146,18 @@ def submit_recording(request):
             line = Line.objects.get(id=int(line_id))
             line.speaker_recording = request.FILES['fileupload']
             line.save()
+        elif request.GET.get('type',None) == 'line_response':
+            line_id = request.GET.get('line_id',None)
+            line = Line.objects.get(id=int(line_id))
+            attempt_id = request.GET.get('attempt_id',None)
+            attempt = Attempt.objects.get(id=int(attempt_id))
+            
+            line_recording = LineRecording(
+                line=line,
+                attempt=attempt,
+                response_recording = request.FILES['fileupload'],
+            )
+            line_recording.save()
         else:
             # Validate phrase exists
             phrase_id = request.GET.get('phrase_id')
@@ -306,11 +318,22 @@ def practicing_handler(request,attempt_id,order):
 
     next_line_url = "/practicing/%s/%s/" % (attempt.id, int(order) + 1)
 
+    # For the players and recorders
+    interviewer_recording_url = settings.MEDIA_URL + str(line.interviewer_recording) if line.interviewer_recording else ""
+    speaker_recording_url = settings.MEDIA_URL + str(line.speaker_recording) if line.speaker_recording else ""
+    response_upload_params = "type=line_response&line_id=%s&attempt_id=%s" \
+            % (line.id, attempt.id)
+
+
     return render(request,'convo.html', {
         'conversation':attempt.conversation,
         'attempt':attempt,
         'line':line,
         'next_line_url':next_line_url,
+
+        'interviewer_recording_url':interviewer_recording_url,
+        'speaker_recording_url':speaker_recording_url,
+        'response_upload_params':urllib.quote_plus(response_upload_params),
     })
 
 

@@ -30,6 +30,7 @@
             <div class="player">
                 <span class="play-icon"></span>
                 <span class="text">Play</span>
+                {% render_partial player.html title:'Interviewer' mp3Url:interviewer_recording_url%}
             </div>
             <a class="show-script" href="" onclick="$(this).toggle();$(this).next().toggle(); return false;">
                 Show Script
@@ -48,6 +49,7 @@
             <div class="player">
                 <span class="play-icon"></span>
                 <span class="text">Play</span>
+                {% render_partial player.html title:'Speaker' mp3Url:speaker_recording_url%}
             </div>
             <a class="show-script" href="" onclick="$(this).toggle();$(this).next().toggle(); return false;">
                 Show Script
@@ -58,6 +60,7 @@
             <div class="record">
                 <span class="play-icon"></span>
                 <span class="text">Record</span>
+                {% render_partial recorder.html type:'record' title:'expert' upload_params:response_upload_params%}
             </div>
         </div>
     </div>
