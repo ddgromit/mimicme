@@ -1,0 +1,15 @@
+{% extends 'admin/change_form.html' %}
+{% load render_partial %}
+
+{% block after_field_sets %}
+{{ block.super }}
+{% if change %}
+<b>Hear current or record over expert recordings</b>
+{% render_partial player.html title:'Interviewer' mp3Url:interviewer_recording_url%}
+{% render_partial recorder.html type:'record' title:'expert' upload_params:interviewer_upload_params%}
+{% render_partial player.html title:'Speaker' mp3Url:speaker_recording_url%}
+{% render_partial recorder.html type:'record' title:'expert' upload_params:speaker_upload_params%}
+{% else %}
+<b>Save this first to make recordings for it</b>
+{% endif %}
+{% endblock after_field_sets %}
