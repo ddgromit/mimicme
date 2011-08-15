@@ -289,7 +289,10 @@ def start_conversation_handler(request, conversation_id):
     conversation = Conversation.objects.get(id=conversation_id)
 
     # Create an attempt to track progress
-    attempt = Attempt(conversation = conversation)
+    attempt = Attempt(
+        conversation = conversation,
+        user = request.user,
+    )
     attempt.save()
 
     # Build the starting url

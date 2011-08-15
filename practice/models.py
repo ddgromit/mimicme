@@ -67,6 +67,7 @@ class Line(models.Model):
         return "%s #%s" % (self.conversation.title,self.order)
 
 class Attempt(models.Model):
+    user = models.ForeignKey('auth.User')
     conversation = models.ForeignKey('conversation')
     started = models.DateTimeField(auto_now_add = True)
     is_finished = models.BooleanField(default=False)
