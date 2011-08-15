@@ -40,6 +40,9 @@ def remote_collectstatic():
     with virtualenv():
         run("./manage.py collectstatic --noinput")
 
+def remote_migrate():
+    with virtualenv():
+        run("./manage.py migrate practice")
 
 # DEPLOY HELPERS #
 
@@ -74,5 +77,6 @@ def remote_redeploy():
     remote_pull()
     remote_collectstatic()
     remote_syncdb()
+    remote_migrate()
     remote_reload_django()
 
