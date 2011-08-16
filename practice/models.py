@@ -42,7 +42,10 @@ class ResponseFeedback(models.Model):
 class Conversation(models.Model):
     title = models.CharField(max_length = 300)
     description = models.CharField(max_length=1000)
-    thumbnail = models.ImageField(upload_to='conversation_thumbnails')
+    thumbnail = models.ImageField(
+        upload_to='conversation_thumbnails',
+        blank=True,
+    )
 
     def __str__(self):
         return self.title
