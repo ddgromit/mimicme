@@ -7,26 +7,27 @@
     color: #111;
     font-weight: bold;
     margin-bottom: 18px; }
-  .situations .situation .pic {
-    float: left;
-    width: 150px; }
-  .situations .situation .right-area {
-    float: left;
-    margin-left: 10px;
-    width: 400px; }
-    .situations .situation .right-area .name {
-      font-size: 24px; }
-      .situations .situation .right-area .name button {
-        font-size: 20px;
-        margin-left: 10px; }
-      .situations .situation .right-area .name a {
-        color: black;
-        text-decoration: none; }
-      .situations .situation .right-area .name a:hover {
-        border-bottom: 1px dotted #FFA86E; }
-    .situations .situation .right-area .description {
-      font-size: 13px;
-      color: #222; }
+  .situations .situation {
+    margin-bottom: 20px; }
+    .situations .situation .pic {
+      float: left;
+      width: 150px; }
+    .situations .situation .right-area {
+      float: left;
+      margin-left: 20px;
+      width: 450px; }
+      .situations .situation .right-area .button {
+        color: white;
+        float: right; }
+      .situations .situation .right-area .name {
+        font-size: 24px; }
+        .situations .situation .right-area .name a {
+          color: black;
+          text-decoration: none; }
+      .situations .situation .right-area .description {
+        font-size: 13px;
+        color: #222;
+        margin-top: 8px; }
 
 .taken-situations {
   float: right;

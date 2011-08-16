@@ -13,7 +13,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
 {% endblock javascript %}
 
-{% block header_title %}Conversations{% endblock%}
+{% block header_title %}Practice a Conversation{% endblock%}
 
 {% block analytics %}
 {{ block.super }}
@@ -33,17 +33,13 @@
 {% block content %}
 <div class="column-800">
     <div class="situations">
-        <div class="situations-title">
-            Practice a Conversation
-        </div>
-
         {% for conversation in conversations %}
         <div class="situation">
             <img class="pic" src="{{MEDIA_URL}}{{conversation.thumbnail}}" />
             <div class="right-area">
+                <a href="/conversation/{{conversation.id}}/start" class="button"><span>Start</span></a>
                 <div class="name">
                     <a href="/conversation/{{conversation.id}}/start">{{ conversation.title }}</a>
-                    <button>Start</button>
                 </div>
                 <div class="description">
                     {{ conversation.description }}

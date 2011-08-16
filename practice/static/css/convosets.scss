@@ -23,31 +23,33 @@
         margin-bottom: 18px;
     }
     .situation {
+        margin-bottom: 20px;
         .pic {
             float: left;
             width: 150px;
         }
         .right-area {
             float: left;
-            margin-left: 10px;
-            width: 400px;
+            margin-left: 20px;
+            width: 450px;
+            .button {
+                color:white;
+                float: right;
+            }
             .name {
                 font-size: 24px;
-                button {
-                    font-size: 20px;
-                    margin-left: 10px;
-                }
                 a {
                     color: black;
                     text-decoration:none;
                 }
                 a:hover {
-                    border-bottom: 1px dotted #FFA86E;
+                    //border-bottom: 1px dotted #FFA86E;
                 }
             }
             .description {
                 font-size: 13px;
                 color: #222;
+                margin-top: 8px;
             }
         }
     }
