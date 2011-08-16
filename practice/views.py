@@ -303,6 +303,7 @@ def start_conversation_handler(request, conversation_id):
 
 @login_required
 def practicing_handler(request,attempt_id,order):
+    order = int(order)
     attempt = Attempt.objects.get(id=attempt_id)
 
     try:
@@ -327,12 +328,16 @@ def practicing_handler(request,attempt_id,order):
     response_upload_params = "type=line_response&line_id=%s&attempt_id=%s" \
             % (line.id, attempt.id)
 
-
+    num_lines = Line.objects.filter(conversation=attempt.conversation).count()
+    line_numbers = xrange(1,num_lines+1)
+    annotated_line_numbers = zip(line_numbers,[line_number == order for line_number in line_numbers])
     return render(request,'convo.html', {
         'conversation':attempt.conversation,
         'attempt':attempt,
         'line':line,
         'next_line_url':next_line_url,
+
+        'annotated_line_numbers':annotated_line_numbers,
 
         'interviewer_recording_url':interviewer_recording_url,
         'speaker_recording_url':speaker_recording_url,

@@ -17,9 +17,11 @@
 
 {% block content %}
     <div class="progress">
-        <div class="item item-current">1</div>
-        <div class="item item-noncurrent">2</div>
-        <div class="item item-noncurrent">3</div>
+        {% for line_number,current in annotated_line_numbers %}
+        <div class="item {% if current %}item-current{% else %}item-noncurrent{%endif%}">
+            {{line_number}}
+        </div>
+        {% endfor %}
         <div style="clear: both;"></div>
     </div>
     <div class="dialog-interviewer dialog">
