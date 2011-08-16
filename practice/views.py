@@ -277,7 +277,7 @@ def response_feedback_handler(request):
 @login_required
 def conversations_handler(request):
     conversations = Conversation.objects.all()
-    attempts = Attempt.objects.all().order_by('-started')
+    attempts = Attempt.objects.filter(user=request.user).order_by('-started')
 
     return render(request,'convosets.html',{
         'conversations':conversations,
