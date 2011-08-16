@@ -56,7 +56,7 @@
         </div>
         {% for attempt in attempts %}
         <div class="situation">
-            <a href="/practicing/{{attempt.id}}/1/" class="button start"><span>Review</span></a>
+            <a href="/practicing/{{attempt.id}}/1/" class="start"><span>{%if attempt.is_finished%}Review{%else%}Finish{%endif%}</span></a>
             <div class="name">
                 <a href="/practicing/{{attempt.id}}/1/">{{attempt.conversation.title}}</a>
             </div>

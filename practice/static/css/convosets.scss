@@ -72,9 +72,8 @@
         font-size: 14px;
         margin-bottom: 15px;
         .name {
-            font-weight: bold;
             a {
-                color: black;
+                color: #222;
                 text-decoration:none;
             }
             a:hover {
@@ -83,6 +82,13 @@
         }
         .start {
             float: right;
+            color: #66b;
+            text-decoration:none;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        .start:hover {
+            color: #00b;
         }
         .ago {
             font-size: 11px;
