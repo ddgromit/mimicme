@@ -28,8 +28,6 @@
         </div>
         <div class="dialog-content">
             <div class="player">
-                <span class="play-icon"></span>
-                <span class="text">Play</span>
                 {% render_partial player.html title:'Interviewer' mp3Url:interviewer_recording_url%}
             </div>
             <a class="show-script" href="" onclick="$(this).toggle();$(this).next().toggle(); return false;">
@@ -47,8 +45,6 @@
         </div>
         <div class="dialog-content">
             <div class="player">
-                <span class="play-icon"></span>
-                <span class="text">Play</span>
                 {% render_partial player.html title:'Speaker' mp3Url:speaker_recording_url%}
             </div>
             <a class="show-script" href="" onclick="$(this).toggle();$(this).next().toggle(); return false;">
@@ -58,8 +54,6 @@
                 {{ line.speaker_text }}
             </div>
             <div class="record">
-                <span class="play-icon"></span>
-                <span class="text">Record</span>
                 {% render_partial recorder.html type:'record' title:'expert' upload_params:response_upload_params%}
             </div>
         </div>
@@ -71,6 +65,6 @@
         </button>
     </div>
     <div class="submit-review">
-        <input type="checkbox" id="submit-for-review" checked/> <label for="submit-for-review"> Submit this recording for review by an expert</label>
+        <!--<input type="checkbox" id="submit-for-review" checked/> <label for="submit-for-review"> Submit this recording for review by an expert</label>-->
     </div>
 {% endblock content %}

@@ -26,6 +26,8 @@
 
 .dialog-interviewer .dialog-title {
   background-color: orange; }
+.dialog-interviewer .player {
+  margin-top: 10px; }
 
 .dialog-speaker .dialog-title {
   background-color: #1744A8; }
@@ -45,6 +47,14 @@
     border-style: solid;
     padding: 3px 5px;
     font-size: 12px; }
+    .dialog .dialog-content .script {
+      color: black; }
+    .dialog .dialog-content .show-script, .dialog .dialog-content .script {
+      display: block;
+      font-size: 16px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      margin-top: 20px; }
 
 .submit-review {
   text-align: right;
