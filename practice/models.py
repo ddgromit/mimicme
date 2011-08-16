@@ -42,7 +42,7 @@ class ResponseFeedback(models.Model):
 class Conversation(models.Model):
     title = models.CharField(max_length = 300)
     description = models.CharField(max_length=1000)
-    thumbnail = models.ImageField(
+    thumbnail = models.FileField(
         upload_to='conversation_thumbnails',
         blank=True,
     )
