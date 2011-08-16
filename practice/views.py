@@ -320,6 +320,22 @@ def practicing_handler(request,attempt_id,order):
             'attempt':attempt,
         })
 
+
+    # Check if a recording was already made here
+    try:
+        line_recording = LineRecording.objects.get(
+            line = line,
+            attempt = attempt,
+        )
+        your_recording_url = settings.MEDIA_URL + str(line_recording.response_recording)
+        feedbacks = []
+    except LineRecording.DoesNotExist:
+        line_recording = None
+        your_recording_url = None
+        feedbacks = []
+
+
+
     next_line_url = "/practicing/%s/%s/" % (attempt.id, int(order) + 1)
 
     # For the players and recorders
@@ -342,6 +358,10 @@ def practicing_handler(request,attempt_id,order):
         'interviewer_recording_url':interviewer_recording_url,
         'speaker_recording_url':speaker_recording_url,
         'response_upload_params':urllib.quote_plus(response_upload_params),
+
+        'line_recording':line_recording,
+        'your_recording_url':your_recording_url,
+        'feedbacks':feedbacks,
     })
 
 

@@ -24,6 +24,11 @@
   .progress .item-noncurrent:hover {
     background-color: #eee; }
 
+.next-phrase {
+  float: right;
+  padding: 5px 3px;
+  font-size: 26px; }
+
 .dialog-interviewer .dialog-title {
   background-color: orange; }
 .dialog-interviewer .player {
@@ -67,6 +72,6 @@
 .next-phrase-area {
   text-align: right;
   margin-top: 10px; }
-  .next-phrase-area button.next-phrase {
-    padding: 5px 3px;
-    font-size: 30px; }
+
+.feedbacks {
+  margin: 20px 0px 10px 10px; }

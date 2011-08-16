@@ -16,6 +16,7 @@
 {% block header_title %}{{conversation.title}}{% endblock%}
 
 {% block content %}
+    <a class="button next-phrase" href="{{next_line_url}}"><span>Next Line &nbsp;&rarr;</span></a>
     <div class="progress">
         {% for line_number,current in annotated_line_numbers %}
         <div class="item {% if current %}item-current{% else %}item-noncurrent{%endif%}">
@@ -56,15 +57,30 @@
                 {{ line.speaker_text }}
             </div>
             <div class="record">
+                {% if not line_recording %}
                 {% render_partial recorder.html type:'record' title:'expert' upload_params:response_upload_params%}
+                {% else %}
+                {% render_partial player.html title:'Your Recording' mp3Url:your_recording_url%}
+                {% endif %}
             </div>
+            {% if line_recording %}
+            <div class="feedbacks">
+                <h2>Feedback</h2>
+                {% for feedback_url in feedbacks %}
+                <div class="feedback">
+                    {% render_partial player.html title:'Feedback' mp3Url:feedback_url%}
+                </div>
+                {% endfor %}
+                {% ifequal feedbacks|length 0 %}
+                No feedback yet.
+                {% endifequal %}
+            </div>
+            {% endif %}
         </div>
     </div>
 
     <div class="next-phrase-area">
-        <button class="next-phrase" onclick="window.location = '{{next_line_url}}'">
-            Next Line
-        </button>
+        <a class="button next-phrase" href="{{next_line_url}}"><span>Next Line &nbsp;&rarr;</span></a>
     </div>
     <div class="submit-review">
         <!--<input type="checkbox" id="submit-for-review" checked/> <label for="submit-for-review"> Submit this recording for review by an expert</label>-->

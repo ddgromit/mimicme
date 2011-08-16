@@ -30,6 +30,11 @@
     }
 
 }
+.next-phrase {
+    float: right;
+    padding: 5px 3px;
+    font-size: 26px;
+}
 
 .dialog-interviewer {
     .dialog-title {
@@ -90,8 +95,10 @@
 .next-phrase-area {
     text-align:right;
     margin-top: 10px;
-    button.next-phrase {
-        padding: 5px 3px;
-        font-size: 30px;
+    .next-phrase {
     }
+}
+.feedbacks {
+    margin: 20px 0px 10px 10px;
+
 }
