@@ -52,13 +52,21 @@
 
     <div class="taken-situations">
         <div class="taken-title">
-            Recent Sessions
+            Your Recent Sessions
         </div>
+        {% for attempt in attempts %}
         <div class="situation">
-            <div class="name">Job Interview</div>
-            <div class="status waiting-for-review">Waiting for Review</div>
-            <div class="ago">Taken Yesterday</div>
+            <div class="name">{{attempt.conversation.title}}</div>
+            <div class="status waiting-for-review">
+                {% if attempt.is_finished %}
+                Waiting for Review
+                {% else %}
+                Unfinished
+                {% endif %}
+            </div>
+            <div class="ago">Started {{attempt.started|timesince}} ago</div>
         </div>
+        {% endfor %}
     </div>
     <div style="clear: both;"></div>
 </div>

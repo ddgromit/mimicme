@@ -1,5 +1,5 @@
 .situations {
-  margin-top: 20px;
+  margin-top: 5px;
   float: left;
   margin-left: 10px; }
   .situations .situations-title {
@@ -34,7 +34,7 @@
   width: 215px;
   border-left: 1px solid #ccc;
   padding-left: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
   min-height: 300px; }
   .taken-situations .taken-title {
     font-size: 20px;
@@ -42,7 +42,10 @@
     color: #111;
     margin-bottom: 18px; }
   .taken-situations .situation {
-    font-size: 14px; }
+    font-size: 14px;
+    margin-bottom: 15px; }
+    .taken-situations .situation .name {
+      font-weight: bold; }
     .taken-situations .situation .ago {
       font-size: 11px; }
     .taken-situations .situation .waiting-for-review {

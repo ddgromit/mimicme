@@ -13,7 +13,7 @@
 
 
 .situations {
-    margin-top: 20px;
+    margin-top: 5px;
     float: left;
     margin-left: 10px;
     .situations-title {
@@ -60,7 +60,7 @@
     width: 215px;
     border-left: 1px solid #ccc;
     padding-left:10px;
-    margin-top: 20px;
+    margin-top: 5px;
     min-height: 300px;
     .taken-title {
         font-size: 20px;
@@ -70,7 +70,9 @@
     }
     .situation {
         font-size: 14px;
+        margin-bottom: 15px;
         .name {
+            font-weight: bold;
         }
         .ago {
             font-size: 11px;
